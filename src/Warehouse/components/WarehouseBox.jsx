@@ -1,9 +1,9 @@
 import React from "react";
 import '../view.css'
-import "../main.css"
+
 const edit= require('../images/edit.svg').default
 
-const ExperienceBox = (box) => {
+const WarehouseBox = (box) => {
     var employment_type = ''
     var end_date = ''
     if(box.box.employment_type==1)
@@ -31,4 +31,4 @@ const viewusername = sessionStorage.getItem("viewusername")
     </div>
 }
 
-export default ExperienceBox;
+export default WarehouseBox;
