@@ -191,10 +191,10 @@ header {
   width: 2vw;
 }
 #eyecloseimg{
+  position: relative;
   width:20px;
-  margin-top:-73px;
+  margin-top:-9vh;
   margin-left: 27.63vw;
-  color:grey;
   height:20px;
 }
 

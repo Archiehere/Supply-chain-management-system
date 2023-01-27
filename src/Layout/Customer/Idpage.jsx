@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
 import Loader from "../../loader";
+import './Customer.css';
 
 function Idpage(){
 const Navhandler = useNavigate();
@@ -41,11 +42,14 @@ return(<>
             <Authblock 
             // onclick={handleapi} 
             name="Track" />
+           <div id='hide'>
             <Switch
               status="Already"
               action="Log In"
-              destination={() => Navhandler("/login")}
+              destination={() => Navhandler("/login")
+            }
             />
+            </div>
           </div>
           <ToastContainer limit={1} position="top-center" theme="dark" />
         </div>
