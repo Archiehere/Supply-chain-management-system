@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  color: #f8f8f8;
+}
+
+body {
+  background-color: #0C0C0F;
+  overflow-x: hidden;
+  font-family: "Manrope";
+}
+
+.authbox{
+  height: 3vw;
+  width: 30vw;
+  font-style: normal;
+  font-size: 1.1vw;
+}
+
+.inputbox {
+  width: 30vw;
+  font-style: normal;
+  font-size: 1.1vw;
+}
+
+.inputbox p{
+  padding-left: 0.3vw;
+}
+
+.input {
+  font-size: 1vw;
+  height: 3.33vw;
+  width: 100%;
+  border-radius: 0.5vw;
+  border: 1px solid #f8f8f8;
+  border-color: aliceblue;
+  padding-left: 1.25vw;
+  background-color: #0C0C0F;
+}
+
+.input:focus {
+  outline: none;
+  background-color: #2e2e2e;
+}
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.error {
+  padding-top: 0.15vw;
+  visibility: hidden;
+  color: #cf6679;
+  font-size: 0.8vw;
+}
+
+#switch {
+  text-align: center;
+}
+
+#switch p {
+  cursor: pointer;
+  display: inline;
+  color: #7e57c2;
+  font-size: 1.45vw;
+}
+
+#authblock {
+  border: none;
+  background-color: #512da8;
+  border-radius: 0.6vw;
+  font-size: 1.15vw;
+  text-align: center;
+}
+
+#authblock:hover {
+  background-color: #7e57c2;
+}
+
+#loginbox p {
+  margin-bottom: 0.83vw;
+  font-size: 2vw;
+  text-align: center;
+}
+
+#oauth {
+  border: none;
+  border-radius: 0.6vw;
+  background-color: #cdccd9;
+  text-align: center;
+  line-height: 2.75vw;
+}
+
+#oauth span b {
+  color: #3e3e3e;
+  font-size: 1.2vw;
+  vertical-align: middle;
+}
+
+#auth_instruction {
+  width: 30vw;
+  height: 1.45vw;
+  text-align: center;
+  margin-top: 1.15vw;
+}
+
+#auth_instruction pre {
+  margin-left: -0.5vw;
+}
+
+#auth_instruction span {
+  padding: 1vw;
+  font-size: 1.15vw;
+}
+
+header {
+  margin-top: 2.22%;
+  margin-left: 5.55%;
+  width: 8rem;
+  height: 2rem;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.063rem;
+  display: flex;
+  align-items: center;
+}
+.illustration {
+  position: absolute;
+  margin-left: 8.89vw;
+  margin-top: 24vh;
+  width: 42vw;
+  height: 29vw;
+}
+
+#forgot_password {
+  cursor: pointer;
+  height: 3.5vw;
+  width: 30vw;
+  font-size: 1.25vw;
+  text-align: end;
+  margin-left: 1.1vw;
+  padding-right: 1.65vw;
+  color: #7e57c2;
+}
+
+.line {
+  vertical-align: middle;
+
+  display: inline-block;
+  width: 7vw;
+  border: 0.1px solid #f8f8f8;
+}
+
+#logoname {
+  width: 75%;
+  height: 100%;
+  right: 0;
+}
+
+#login {
+  position: absolute;
+  margin-left: 56vw;
+  margin-top: 10vh;
+  height: 36.4vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#logo {
+  padding: 0%;
+  font-family: "Manrope";
+  font-size: 100%;
+  width: 8.8%;
+  margin-left: 8.8%;
+  margin-top: 4.4%;
+}
+
+#oauth img {
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+#googleicon {
+  width: 2vw;
+}
+
+@media (max-width: 800px) {
+  .illustration {
+    display: none;
+  }
+
+  #login {
+    margin-left: 10vw;
+    width: 80vw;
+    height: 75vh;
+    justify-content: space-between;
+  }
+
+  .error {
+    font-size: 2.5vw;
+    width: 80vw;
+  }
+
+  .input {
+    width: 80vw;
+    height: 6vh;
+    font-size: 3.33vw;
+    border-radius: 2vw;
+    padding-left: 3vw;
+  }
+
+  #switch p {
+    font-size: 3.33vw;
+  }
+
+  .authbox {
+    height: 6vh;
+    width: 80vw;
+    font-size: 3.33vw;
+  }
+
+  #auth_instruction {
+    width: 80vw;
+    font-size: 2.3vw;
+    margin-top: 2vh;
+  }
+
+  #loginbox p {
+    font-size: 6vw;
+  }
+
+  #googleicon {
+    width: 6vw;
+  }
+  #oauth span b {
+    font-size: 3.5vw;
+  }
+
+  #forgot_password {
+    width: 35vw;
+    height: 5vh;
+    font-size: 3.5vw;
+    text-align: end;
+    margin-left: 45vw;
+    color: #7e57c2;
+  }
+
+  #authblock {
+    font-size: 3.5vw;
+  }
+
+  header {
+    margin-top: 10vh;
+    margin-left: 25vw;
+    width: 50vw;
+    justify-content: center;
+  }
+  .line {
+    width: 20vw;
+    margin-left: 2vw;
+  }
+  #auth_instruction span {
+    font-size: 3vw;
+    margin: 2vw;
+  }
+
+  #inputbox p {
+    margin-left: 1vw;
+  }
+
+  .inputbox {
+    margin-bottom: 1vh;
+    height: 10vh;
+    margin-top: 1vh;
+    font-size: 3.33vw;
+  }
+
+}
