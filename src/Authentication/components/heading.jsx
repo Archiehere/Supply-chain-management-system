@@ -8,7 +8,7 @@ function Heading() {
     return (
       <header>
         <img src={logo} alt="logo" />
-      FR8
+        व्यापार-E
       </header>
     );
 }

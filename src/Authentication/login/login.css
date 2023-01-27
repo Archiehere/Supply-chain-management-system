@@ -117,12 +117,12 @@ body {
 header {
   margin-top: 2.22%;
   margin-left: 5.55%;
-  width: 8rem;
+  width: 10rem;
   height: 2rem;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 2.063rem;
   display: flex;
   align-items: center;

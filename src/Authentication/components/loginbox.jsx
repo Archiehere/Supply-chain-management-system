@@ -28,7 +28,7 @@ const Oauth = (props ) => {
 
   return (
     <div id="loginbox">
-      <p className="authbox">Welcome to ConnectPlus</p>
+      <p className="authbox">Welcome to व्यापार-E</p>
       {/* <button id="oauth" className="authbox"> */}
       {/* <img id="googleicon" src={illustration} alt="google" /> */}
         {/* <span><b>Continue with Google</b></span> */}
