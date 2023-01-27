@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/fontawesome-free-solid";
 import { useNavigate } from "react-router-dom";
 import BaseUrl from '../../util/BaseUrl';
+import { func } from 'prop-types';
 
 const illustration = require("../images/setpass.svg").default;
 
@@ -22,9 +23,9 @@ function Passwordset(){
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
     const [businessname,setbusinessname] =useState("");
-    const email = localStorage.getItem("email");
+    // const email = localStorage.getItem("email");
     const [loading,setLoading]=useState(false);
-    const otp = localStorage.getItem("otp")
+    // const otp = localStorage.getItem("otp")
 
     const[show1 , setShow1]=useState(false);
   const[show2 , setShow2]=useState(false);
@@ -69,6 +70,9 @@ function Passwordset(){
             document.getElementById("pass2b").style.borderColor = "#CF6679";
         }
     }
+    function handlename(e){
+        setbusinessname(e.target.value);
+    }
 
     function handleapi(){
         setLoading(true);
@@ -110,8 +114,10 @@ function Passwordset(){
        <Heading /> 
        <img className='svgsetpass' id='svg1' src={illustration} alt="" />
        <div id="setpass" >
-       <div><h1 className='topline'>Set password?</h1>
-            <p className='middle'>No worries, set password</p></div>
+       <div><h1 className='topline'>Set password</h1>
+            </div>
+            <Input lable="Business Name" onchange={handlename} placeholder="Enter Business Name" />
+            <br /> 
             <Input inp='passb'  onchange={handlepass} type={show1 ? "text" : "password"} lable="Password" placeholder="Enter Password" message="Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet" err_id='pass' />
             {show1 ? (
                 <FontAwesomeIcon

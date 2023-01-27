@@ -1,7 +1,9 @@
 #svg3{
     position: absolute;
-    right: 1.89vw;
-    top: 45.89vh;
+    right: 0.1vw;
+    top: 52.5vh;
+    /* top:100%; */
+    /* right: 100%; */
     width:600px;
     height:400px;
 }
@@ -16,7 +18,7 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 #buttondiv{
     margin-top:220px;
-    margin-left:110px;
+    margin-left:310px;
 }
 #splashbtn{
         border: none;

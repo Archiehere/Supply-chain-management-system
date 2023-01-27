@@ -59,11 +59,11 @@ const Otp = () => {
         }).then((res) => {
             console.log(res.data);
             setLoading(false);
-            if(res.status===200)
+            if(res.data.success===true)
             {
-                localStorage.setItem("otp",value);
+                // localStorage.setItem("otp",value);
                 if(context==='register')
-                Navhandler("/authphone");
+                Navhandler("/set_password");
                 else
                 Navhandler("/reset_password");
             }
