@@ -9,6 +9,7 @@ import Forgot from "./Authentication/forgot/forgotAPP";
 import Resetpass from "./Authentication/reset password/resetPassApp"
 import Setpass from "./Authentication/set password/setPassApp"
 import Splash from "./Authentication/Splash/Splash";
+import Idpage from "./Layout/Customer/Idpage";
 import Warehouse from "./Warehouse/warehouse";
 
 const App = () => {
@@ -23,6 +24,8 @@ const App = () => {
     <Route path="/forgot_password" element={<Forgot />}></Route>
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
+
+    <Route path="/id_page" element={<Idpage />}></Route>
    
     <Route path="/warehouse" element={<Warehouse/>}></Route>
 

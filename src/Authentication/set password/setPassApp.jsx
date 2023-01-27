@@ -77,15 +77,17 @@ function Passwordset(){
     function handleapi(){
         setLoading(true);
         let token= sessionStorage.getItem("token")
-        let config ={
-            header:token
-        }
+        const config ={
+            headers:{
+              Authorization:`Bearer ${token}`,
+            }
+          }
         if(password===password2 && password)
         {
-            BaseUrl.post("/signup",config,{
+            BaseUrl.post("/signup",{
             password:password,
-            businessname:businessname
-            }).then((res) => {
+            business_name:businessname
+            },config).then((res) => {
                 console.log(res);
                 if (res.data.message === "User Created Successfully") {
                     localStorage.clear();
