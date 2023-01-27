@@ -15,7 +15,12 @@ import BaseUrl from '../../util/BaseUrl';
 import { func } from 'prop-types';
 
 const illustration = require("../images/setpass.svg").default;
-
+let token= sessionStorage.getItem("token")
+        const config ={
+            headers:{
+              Authorization:`Bearer ${token}`,
+            }
+          }
 
 
 function Passwordset(){
@@ -76,12 +81,7 @@ function Passwordset(){
 
     function handleapi(){
         setLoading(true);
-        let token= sessionStorage.getItem("token")
-        const config ={
-            headers:{
-              Authorization:`Bearer ${token}`,
-            }
-          }
+        
         if(password===password2 && password)
         {
             BaseUrl.post("/signup",{
@@ -91,7 +91,7 @@ function Passwordset(){
                 console.log(res);
                 if (res.data.success === true) {
                     // localStorage.clear();
-                    localStorage.setItem("accesstoken",res.data.accesstoken);
+                    localStorage.setItem("accesstoken",res.data.token);
                     Navhandler("/warehouse");
                     localStorage.clear();
                   } else {

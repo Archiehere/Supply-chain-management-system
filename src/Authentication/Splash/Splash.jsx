@@ -15,7 +15,7 @@ return(<>
 <button id='splashbtn' onClick={()=>Navhandler('/signup')}>Signup</button>
 </div>
 <hr id='splashHr'></hr>
-<h2 id='splashHead' onClick={()=>Navhandler('/customerPage')}>Track A Shipment ?</h2>
+<h2 id='splashHead' onClick={()=>Navhandler('/id_Page')}>Track A Shipment ?</h2>
 </div>
 <img className='svgsetpass' id='svg3' src={splash} alt="" />
 </>)

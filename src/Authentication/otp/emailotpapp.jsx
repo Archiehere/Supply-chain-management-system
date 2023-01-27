@@ -61,7 +61,7 @@ const Otp = () => {
             setLoading(false);
             if(res.data.success===true)
             {
-                sessionStorage.setItem("token",res.data.token);
+                localStorage.setItem("accesstoken",res.data.token);
                 if(context==='register')
                 Navhandler("/set_password");
                 else

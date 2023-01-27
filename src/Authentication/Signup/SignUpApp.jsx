@@ -49,14 +49,15 @@ const SignUp = () => {
           Navhandler("/otp");
         } else {
           console.log("f");
+          toast.error(res.data.msg)
           setLoading(false);
         }
       })
       .catch((err) => {
         setLoading(false);
         console.log(err);
-        console.log(err.response.data.email)
-        toast.error(err.response.data.email)
+        console.log(err.response.data.msg)
+        toast.error(err.response.data.msg)
       });}
       else
       toast.error("Enter a valid email address")
