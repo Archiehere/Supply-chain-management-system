@@ -1,0 +1,75 @@
+#viewskill {
+  position: absolute;
+  width: 77.78vw;
+  margin-left: 18.67vw;
+  margin-top: 5.55vw;
+  border: 1px solid #ebebf0;
+  border-radius: 4px;
+  padding: 2vw;
+}
+
+#viewskill span {
+    font-size: 1.7vw;
+    font-weight: 700;
+    margin-left: 1vw;
+}
+#viewskill img {
+  width: 1.2vw;
+  height: 1.2vw;
+  cursor: pointer;
+}
+
+#add {
+  float: right;
+}
+
+.editicon {
+    height: 1.2vw;
+    width: 1.2vw;
+    float: right;
+}
+.endorse{
+    color: #A950FB;
+    font-size: 1.2vw !important;
+    vertical-align: top;
+    float: right;
+    cursor: pointer;
+}
+#warehead{
+position:absolute;
+left:270px;
+top:5vh;
+}
+#inputArr{
+  position: absolute;
+  width:55vw;
+  /* left:270px;
+  top:22vh; */
+}
+#createinp{
+  position: absolute;
+  left:270px;
+  top:150px;
+}
+#padder{
+  margin-bottom:40px;
+}
+select {
+  background-color: #13131A;
+  width: 55vw;
+  border: 0.1vw solid white;
+  border-radius: 0.4vw;
+  padding-left: 1vw;
+  font-size: 0.8vw;
+height:3.33vw;
+}
+#SubmitBtn{
+  border: none;
+  background-color: #512da8;
+  border-radius: 0.6vw;
+  padding:10px 360px;
+  font-size: 1.15vw;
+  text-align: center;
+  font-weight:bold;
+  cursor:pointer;
+}

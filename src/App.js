@@ -10,7 +10,9 @@ import Resetpass from "./Authentication/reset password/resetPassApp"
 import Setpass from "./Authentication/set password/setPassApp"
 import Splash from "./Authentication/Splash/Splash";
 import Idpage from "./Layout/Customer/Idpage";
-import Warehouse from "./Warehouse/warehouse";
+// import Warehouse from "./Warehouse/warehouse";
+import Warehouse from './Warehouse/Warehouse.jsx'
+import CreateWarehouse from "./Warehouse/CreateWarehouse";
 
 const App = () => {
   return <BrowserRouter>
@@ -27,7 +29,8 @@ const App = () => {
     
     <Route path="/id_page" element={<Idpage />}></Route>
    
-    <Route path="/warehouse" element={<ProtectedRoute><Warehouse/></ProtectedRoute>}></Route>
+    <Route path="/warehouse" element={<ProtectedRoute><Warehouse /></ProtectedRoute>}></Route>
+    <Route path="/createwarehouse" element={<ProtectedRoute><CreateWarehouse /></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;

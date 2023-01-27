@@ -11,7 +11,6 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
   }
   #svg2{
     position: absolute;
-    
     right: 5.89vw;
     top: 53.89vh;
 
