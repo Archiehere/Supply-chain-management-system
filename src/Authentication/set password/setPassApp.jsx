@@ -15,7 +15,7 @@ import BaseUrl from '../../util/BaseUrl';
 import { func } from 'prop-types';
 
 const illustration = require("../images/setpass.svg").default;
-let token= sessionStorage.getItem("token")
+let token= localStorage.getItem("accesstoken")
         const config ={
             headers:{
               Authorization:`Bearer ${token}`,

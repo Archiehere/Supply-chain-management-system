@@ -29,14 +29,16 @@ const config ={
   }
 }
 
-// var [experience,setexp] = useState([]);
+let [experience,setexp] = useState([]);
+var [reload,setreload] = useState(false);
 
 function handlexp (){
-  BaseUrl.get('/profile/experience/?username='+viewusername,config)
+  BaseUrl.get('/w/warehouse',config)
   .then((res)=>
   {
     console.log(res);
-    // setexp(res.data);
+    setexp(res.data.warehouses);
+    setreload(true);
   })
   .catch((err)=>{
     console.log(err);
@@ -60,9 +62,9 @@ if(username!=viewusername)
         <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
           <WarehouseBox />
-            {/* { */}
-         {/* experience.map((box)=>{return <WarehouseBox key={box.id} box={box} />}) */}
-            {/* } */}
+            {
+                  (reload?  experience.map((box)=>{console.log(box); return <WarehouseBox key={box.id} name={box.name}  location={box.location} max_volume={box.max_volume} />}) : null)
+            }
         </div>
       </div>
         <ToastContainer position="top-center" theme="dark" />

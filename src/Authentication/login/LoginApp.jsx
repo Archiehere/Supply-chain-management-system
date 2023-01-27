@@ -70,29 +70,32 @@ function Login() {
       password : password 
     }).then((res) => {
       console.log(res);
-      localStorage.setItem("accesstoken" , res.data.tokens.access);
+      localStorage.setItem("accesstoken" , res.data.token);
       var accesstoken = localStorage.getItem("accesstoken");
       const config ={
       headers:{
     Authorization:`Bearer ${accesstoken}`,
       }
+     
 }
-      BaseUrl.get("/profile/userprofile/",config)
-      .then((res) => {
-        console.log(res)
-        setLoading(false);
-        sessionStorage.setItem("avatar",res.data.avatar) 
-        sessionStorage.setItem("username",res.data.username) 
-        sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
-        sessionStorage.setItem("headLine",res.data.headline) 
-        Navhandler('/')
-      })
-      .catch((err) => {
-        setLoading(false);
-        if(err.response.status == 404)
-        Navhandler('/profile');
-        console.log(err);
-      });
+setLoading(false);
+Navhandler("/warehouse");
+      // BaseUrl.get("/profile/userprofile/",config)
+      // .then((res) => {
+      //   console.log(res)
+      //   setLoading(false);
+      //   sessionStorage.setItem("avatar",res.data.avatar) 
+      //   sessionStorage.setItem("username",res.data.username) 
+      //   sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
+      //   sessionStorage.setItem("headLine",res.data.headline) 
+      //   Navhandler('/')
+      // })
+      // .catch((err) => {
+      //   setLoading(false);
+      //   if(err.response.status == 404)
+      //   Navhandler('/profile');
+      //   console.log(err);
+      // });
       
     })
       .catch((err) => {

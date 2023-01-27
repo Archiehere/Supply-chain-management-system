@@ -11,7 +11,7 @@ import Setpass from "./Authentication/set password/setPassApp"
 import Splash from "./Authentication/Splash/Splash";
 import Idpage from "./Layout/Customer/Idpage";
 // import Warehouse from "./Warehouse/warehouse";
-import Warehouse from './Warehouse/Warehouse.jsx'
+import Warehouse from './Warehouse/warehouse.jsx'
 import CreateWarehouse from "./Warehouse/CreateWarehouse";
 
 const App = () => {

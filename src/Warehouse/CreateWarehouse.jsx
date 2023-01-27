@@ -2,12 +2,25 @@ import Nav from "../navbar/navbar";
 import Input from "../Authentication/components/authinput";
 import { useState } from "react";
 import Authblock from "../Authentication/components/authblock";
+import BaseUrl from "../util/BaseUrl";
+import Loader from "../loader" 
+import { useNavigate } from "react-router";
+
+
 
 function CreateWarehouse(){
-
+	const Navhandler = useNavigate();
 const [name , setName] = useState('');
 const [volm , setVolm] = useState('');
 const [location , setLocation] = useState();
+const [loading , setLoading] = useState();
+
+let token= localStorage.getItem("accesstoken")
+        const config ={
+            headers:{
+              Authorization:`Bearer ${token}`,
+            }
+          }
 
 function handleName(e){
     setName(e.target.value);
@@ -21,7 +34,39 @@ function handleLocation(e){
     setLocation(e.target.value);
 }
 
-return(<>
+function handleapi(){
+	setLoading(true);
+	
+	
+		BaseUrl.post("/w/warehouse",{
+			
+				"name":name,
+				"location":location,
+				"max_volume":volm
+			
+		},config).then((res) => {
+			console.log(res);
+			if (res.data.success === true) {
+				// localStorage.clear();
+				
+				Navhandler("/warehouse");
+				
+			  } else {
+				console.log("f");
+			  }
+			setLoading(false);
+		  })
+			.catch((err) => {
+			  console.log(err);
+			  setLoading(false);
+			}
+			);
+		
+	
+}
+
+return <div>
+	{ loading ? <Loader /> : (<>
 <Nav />
 <h1 id='warehead'>Create A Warehouse</h1>
 <div id='createinp'>
@@ -290,8 +335,8 @@ type="text" lable='Maximum Volume(m^3)' placeholder='Enter Max-Volume' />
 	<option value="ZWE">Zimbabwe</option>
 </select>
 </div>
-<button id='SubmitBtn' >Create</button>
+<button id='SubmitBtn' onClick={handleapi} >Create</button>
 </div>
-</>)
+</>)}</div>
 }
 export default CreateWarehouse;
