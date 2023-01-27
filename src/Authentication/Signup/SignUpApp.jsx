@@ -39,17 +39,17 @@ const SignUp = () => {
     if(email){setLoading(true);
     localStorage.setItem("email", email);
     localStorage.setItem("context", "register");
-    BaseUrl.post("/auth/otp/email/send/", {
-        email: email,
-        context: "register",
+    BaseUrl.post("/email", {
+        email: email
       })
       .then((res) => {
         console.log(res);
         console.log(res.status);
-        if (res.status === 201) {
+        if (res.data.success === true) {
           Navhandler("/otp");
         } else {
           console.log("f");
+          setLoading(false);
         }
       })
       .catch((err) => {
@@ -89,7 +89,7 @@ const SignUp = () => {
               destination={() => Navhandler("/login")}
             />
           </div>
-          <ToastContainer position="top-center" theme="dark" />
+          <ToastContainer limit={1} position="top-center" theme="dark" />
         </div>
       )}
     </div>

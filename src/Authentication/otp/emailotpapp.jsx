@@ -30,13 +30,12 @@ const Otp = () => {
         if(seconds===0){
     const email=localStorage.getItem("email");
     const context = localStorage.getItem("context");
-    BaseUrl.post("/auth/otp/email/send/",{
-     email:email,
-     context:context 
+    BaseUrl.post("/email",{
+     email:email
     }).then((res) => {
       console.log(res);
       console.log(res.status);
-    // localStorage.setItem("accesstoken" , res.data.tokens.access);
+    sessionStorage.setItem("token" , res.data.token);
     })
       .catch((err) => {
         console.log(err);
@@ -54,7 +53,7 @@ const Otp = () => {
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
         const context = localStorage.getItem("context");
-        BaseUrl.post("/auth/otp/email/verify/",{
+        BaseUrl.post("/email/verify",{
             email:email,
             otp:value
         }).then((res) => {
@@ -103,7 +102,7 @@ const Otp = () => {
       <Authblock name="Verify" onclick={handleapi}/>
     </div>
     </div>
-    <ToastContainer position="top-center" theme="dark" />
+    <ToastContainer limit={1} position="top-center" theme="dark" />
     </div>)}
     </div>
 }

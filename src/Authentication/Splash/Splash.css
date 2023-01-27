@@ -31,6 +31,9 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
 #splashpara{
     margin-top:10px;
 }
+#splashHead:hover{
+color:#512da8;
+}
 #splashHr{
     margin-top:30px;
     width:450px;

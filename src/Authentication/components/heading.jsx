@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 // const logo = require("../images/Profoliologo.svg") as string;
 const logo= require("../images/Profoliologo.svg").default;
 
+
+
 function Heading() {  
     return (
       <header>
