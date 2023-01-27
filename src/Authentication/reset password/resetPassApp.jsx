@@ -6,8 +6,8 @@ import Heading from "../components/heading";
 import axios from 'axios';
 import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
-import BaseUrl from '../../BaseUrl';
-const illustration: string = require("../images/setpass.svg").default;
+import BaseUrl from '../../util/BaseUrl';
+const illustration = require("../images/setpass.svg").default;
 
 
 
@@ -19,35 +19,35 @@ function Passwordset(){
     const email = localStorage.getItem("email");
     const otp = localStorage.getItem("otp")
 
-    function handlepass(e:any){
+    function handlepass(e){
         setpassword(e.target.value);
         if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
         {
-            document.getElementById("pass")!.style.visibility = "hidden";
+            document.getElementById("pass").style.visibility = "hidden";
             if(e.target.value==="")
-            document.getElementById("passb")!.style.borderColor = "white";
+            document.getElementById("passb").style.borderColor = "white";
             else
-            document.getElementById("passb")!.style.borderColor = "#66DF98";
+            document.getElementById("passb").style.borderColor = "#66DF98";
         }
         else{
-            document.getElementById("pass")!.style.visibility = "visible";
-            document.getElementById("passb")!.style.borderColor = "#CF6679";
+            document.getElementById("pass").style.visibility = "visible";
+            document.getElementById("passb").style.borderColor = "#CF6679";
         }
     }
 
-    function handlepass2(e:any){
+    function handlepass2(e){
         setpassword2(e.target.value);
         if(password===(e.target.value) || e.target.value==="")
         {
-            document.getElementById("pass2")!.style.visibility = "hidden";
+            document.getElementById("pass2").style.visibility = "hidden";
             if(e.target.value==="")
-            document.getElementById("pass2b")!.style.borderColor = "white";
+            document.getElementById("pass2b").style.borderColor = "white";
             else
-            document.getElementById("pass2b")!.style.borderColor = "#66DF98";
+            document.getElementById("pass2b").style.borderColor = "#66DF98";
         }
         else{
-            document.getElementById("pass2")!.style.visibility = "visible";
-            document.getElementById("pass2b")!.style.borderColor = "#CF6679";
+            document.getElementById("pass2").style.visibility = "visible";
+            document.getElementById("pass2b").style.borderColor = "#CF6679";
         }
     }
 

@@ -10,26 +10,26 @@ import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import BaseUrl from "../../BaseUrl";
-const illustration: string = require("../images/signup.svg").default;
+import BaseUrl from "../../util/BaseUrl";
+const illustration = require("../images/signup.svg").default;
 
 const SignUp = () => {
   const Navhandler = useNavigate();
   const [loading, setLoading] = useState(false);
 
   var [email, setemail] = useState("");
-  function handlemail(e: any) {
+  function handlemail(e) {
     if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(e.target.value) || e.target.value === "") {
       setemail(e.target.value);
-      document.getElementById("sign")!.style.visibility = "hidden";
+      document.getElementById("sign").style.visibility = "hidden";
       if(e.target.value==="")
-      document.getElementById("signb")!.style.borderColor = "white";
+      document.getElementById("signb").style.borderColor = "white";
       else
-      document.getElementById("signb")!.style.borderColor = "#66DF98";
+      document.getElementById("signb").style.borderColor = "#66DF98";
     } 
     else {
-      document.getElementById("sign")!.style.visibility = "visible";
-      document.getElementById("signb")!.style.borderColor = "#CF6679";
+      document.getElementById("sign").style.visibility = "visible";
+      document.getElementById("signb").style.borderColor = "#CF6679";
       email = ""
     }
   }

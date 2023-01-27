@@ -6,7 +6,7 @@ import './forgot.css'
 import axios from 'axios';
 import Loader from '../../loader';
 import {useNavigate} from "react-router-dom";
-import BaseUrl from "../../BaseUrl";
+import BaseUrl from "../../util/BaseUrl";
 const illustration = require("../images/forgot.svg").default;
 
 const Forgot = () => {
