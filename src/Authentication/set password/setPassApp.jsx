@@ -89,9 +89,10 @@ function Passwordset(){
             business_name:businessname
             },config).then((res) => {
                 console.log(res);
-                if (res.data.message === "User Created Successfully") {
-                    localStorage.clear();
-                    Navhandler("/login");
+                if (res.data.success === true) {
+                    // localStorage.clear();
+                    localStorage.setItem("accesstoken",res.data.accesstoken);
+                    Navhandler("/warehouse");
                     localStorage.clear();
                   } else {
                     console.log("f");

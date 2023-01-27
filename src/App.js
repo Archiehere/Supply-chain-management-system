@@ -27,7 +27,7 @@ const App = () => {
 
     <Route path="/id_page" element={<Idpage />}></Route>
    
-    <Route path="/warehouse" element={<Warehouse/>}></Route>
+    <Route path="/warehouse" element={<ProtectedRoute><Warehouse/></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;

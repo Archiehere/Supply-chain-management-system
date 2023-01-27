@@ -33,7 +33,7 @@ const Nav = () => {
         <div onClick={()=>{ Navhandler("/warehouse")}} className="navitem"><img className="navimg" src={home} alt="home" />Warehouse</div>
         {/* <div onClick={()=>{ Navhandler("/network/recieved")}} className="navitem"><img className="navimg" src={network} alt="network" />Networks</div> */}
         <div className="navitem"><img className="navimg" src={work} alt="job" />Shipment</div>
-        <div className="navitem"><img className="navimg" src={msg} alt="msg" />Order Request</div>
+        <div className="navitem"><img className="navimg" src={msg} alt="msg" />Orders</div>
         {/* <div className="navitem"onClick={()=>{;Navhandler("/search")}}><img className="navimg" src={search} alt="search" />Search</div> */}
         {/* <div className="navitem"><img className="navimg" src={noti} alt="noti" />Notification</div> */}
         {/* <div className="navitem" onClick={()=>{sessionStorage.setItem('viewusername',username);Navhandler("/account")}} ><img id="accountimg" className="navimg" src={avatar} alt="ava" />My Account</div> */}
