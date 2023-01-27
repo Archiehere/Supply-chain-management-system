@@ -55,7 +55,7 @@ function Login() {
   }
   function handleapi() {
     if(email && password){setLoading(true);
-    BaseUrl.post("/auth/account/login/", {
+    BaseUrl.post("/login", {
       email :  email ,
       password : password 
     }).then((res) => {
@@ -109,7 +109,7 @@ function Login() {
     <Authblock onclick={handleapi} name="Log In" />
     <Switch status="Don't" action='Sign Up' destination={() => Navhandler('/signup')}  />
   </div>
-  <ToastContainer position="top-center" theme="dark" />
+  <ToastContainer limit={1} position="top-center" theme="dark" />
 </div>)}
 </div>;
 

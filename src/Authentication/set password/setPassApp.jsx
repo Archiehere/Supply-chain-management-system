@@ -16,6 +16,7 @@ function Passwordset(){
     const Navhandler = useNavigate();
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
+    const [businessname,setbusinessname] =useState("");
     const email = localStorage.getItem("email");
     const [loading,setLoading]=useState(false);
     const otp = localStorage.getItem("otp")
@@ -54,12 +55,15 @@ function Passwordset(){
 
     function handleapi(){
         setLoading(true);
+        let token= sessionStorage.getItem("token")
+        let config ={
+            header:token
+        }
         if(password===password2 && password)
         {
-            BaseUrl.post("/auth/account/register/",{
-            email:email,
+            BaseUrl.post("/signup",config,{
             password:password,
-            email_otp:otp
+            businessname:businessname
             }).then((res) => {
                 console.log(res);
                 if (res.data.message === "User Created Successfully") {
