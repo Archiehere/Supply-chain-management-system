@@ -9,7 +9,14 @@
     top: 24vh;
     left: 35.01vw;
   }
-  
+  #eyecloseimg2{
+    position:relative;
+    width:24px;
+    top:-50px;
+    margin-left: 27.63vw;
+    color:grey;
+    height:20px;
+}
   .svgsetpass{
     width: 25.5556vw;
     height: 40.5556vh;

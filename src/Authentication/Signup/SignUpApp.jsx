@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import BaseUrl from "../../util/BaseUrl";
 const illustration = require("../images/signup.svg").default;
 
+
 const SignUp = () => {
   const Navhandler = useNavigate();
   const [loading, setLoading] = useState(false);

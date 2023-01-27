@@ -5,6 +5,11 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import axios from 'axios';
 import Loader from "../../loader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/fontawesome-free-solid";
 import { useNavigate } from "react-router-dom";
 import BaseUrl from '../../util/BaseUrl';
 
@@ -19,6 +24,18 @@ function Passwordset(){
     const email = localStorage.getItem("email");
     const [loading,setLoading]=useState(false);
     const otp = localStorage.getItem("otp")
+
+    const[show1 , setShow1]=useState(false);
+  const[show2 , setShow2]=useState(false);
+
+  function showHide1() {
+    setShow1(!show1);
+  }
+
+  function showHide2() {
+    setShow2(!show2);
+  }
+
 
     function handlepass(e){
         setpassword(e.target.value);
@@ -91,8 +108,34 @@ function Passwordset(){
        <div id="setpass" >
        <div><h1 className='topline'>Set password?</h1>
             <p className='middle'>No worries, set password</p></div>
-            <Input inp='passb'  onchange={handlepass} type="password" lable="Password" placeholder="Enter Password" message="Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet" err_id='pass' />
-            <Input inp='pass2b' onchange={handlepass2} type="password" lable="Confirm-Password" placeholder="Enter Password" message="Passwords Must Match" err_id='pass2'/>
+            <Input inp='passb'  onchange={handlepass} type={show1 ? "text" : "password"} lable="Password" placeholder="Enter Password" message="Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet" err_id='pass' />
+            {show1 ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  id="eyecloseimg2"
+                  onClick={showHide1}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  id="eyecloseimg2"
+                  onClick={showHide1}
+                />
+              )}
+            <Input inp='pass2b' onchange={handlepass2} type={show2 ? "text" : "password"} lable="Confirm-Password" placeholder="Enter Password" message="Passwords Must Match" err_id='pass2'/>
+            {show2 ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  id="eyecloseimg2"
+                  onClick={showHide2}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  id="eyecloseimg2"
+                  onClick={showHide2}
+                />
+              )}
             <br />
             <Authblock onclick={handleapi} name="Save"/>
             <pre>Cancel</pre>

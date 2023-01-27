@@ -11,6 +11,11 @@ import {useNavigate} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BaseUrl from "../../util/BaseUrl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/fontawesome-free-solid";
 
 const illustration = require("../images/loginImage.svg").default;
 
@@ -21,6 +26,11 @@ function Login() {
   const [loading,setLoading]=useState(false);
   const toaststyle ={
     color : "black"
+  }
+
+  const [show, setShow] = useState(false);
+  function showHide() {
+    setShow(!show);
   }
 
   function handlepass(e) {
@@ -104,7 +114,20 @@ function Login() {
   <div id="login">
     <Oauth status="Log in" />
     <Input inp="logb" err_id="log" onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
-    <Input inp="passb" onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet.' err_id="pass" />
+    <Input inp="passb" onchange={handlepass}  type={show ? "text" : "password"} lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet.' err_id="pass" />
+    {show ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  onClick={showHide}
+                  id="eyecloseimg"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  onClick={showHide}
+                  id="eyecloseimg"
+                />
+              )}
     <p onClick={() => Navhandler('/forgot_password')} id="forgot_password">Forgot Password?</p>
     <Authblock onclick={handleapi} name="Log In" />
     <Switch status="Don't" action='Sign Up' destination={() => Navhandler('/signup')}  />

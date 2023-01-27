@@ -188,6 +188,13 @@ header {
 #googleicon {
   width: 2vw;
 }
+#eyecloseimg{
+  width:20px;
+  margin-top:-73px;
+  margin-left: 27.63vw;
+  color:grey;
+  height:20px;
+}
 
 @media (max-width: 800px) {
   .illustration {
