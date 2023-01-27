@@ -8,11 +8,13 @@ import Otp from "./Authentication/otp/emailotpapp";
 import Forgot from "./Authentication/forgot/forgotAPP";
 import Resetpass from "./Authentication/reset password/resetPassApp"
 import Setpass from "./Authentication/set password/setPassApp"
+import Splash from "./Authentication/Splash/Splash";
 
 
 const App = () => {
   return <BrowserRouter>
   <Routes>
+    <Route path="/" element={<Splash />} ></Route>
     <Route path="/login" element={<Login />} ></Route>
     <Route path="/signup" element={<SignUp />}></Route>
     
