@@ -49,7 +49,7 @@ navigate("/editwarehouse")
 }
 
 const Skills = [
-  { type: 'Volume Left', level: 80 },
+  { type: 'Volume Left', level: parseFloat(100-(props.filled_volume/props.max_volume)*100).toFixed(2) },
   //parseFloat(100-(props.filled_volume/props.max_volume)*100).toFixed(2)
 ];
 
@@ -64,11 +64,11 @@ const colors = {
         
         
 
-        <p style={{ display:"inline-block", marginRight:"47.5vw",fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
-        
+        <p style={{ display:"inline-block",fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
+        <div style={{display:"inline",float:"right",marginRight:"7.5vw"}}>
         <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
         <img crossorigin="anonymous" style={{ width:"2vw",height:"auto"}} src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
-        
+        </div>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Max Volume-{props.max_volume} </p>
         <br/>
         <SkillBar skills={Skills}   colors={colors} height="2vh" width="7vw" fontSize="10px" />
