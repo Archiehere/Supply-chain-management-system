@@ -6,7 +6,7 @@ import Nav from "../../../navbar/navbar";
 import add from '../../../Warehouse/images/add.svg';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-
+const voidimg = require('../../../Warehouse/images/void.svg').default
 
 function ViewItems(){
     var accesstoken = localStorage.getItem("accesstoken");
@@ -28,7 +28,6 @@ const Navhandler = useNavigate();
             console.log(res.data.items);
             setArr(res.data.items);
             setreload(true);
-
          }
          )
          .catch((err)=>{
@@ -45,7 +44,7 @@ return(<>
         <span>Warehouse's Items</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/additems")}></img>
         <div>
             {
-                  (reload? arr.map((box)=>{return <ItemsComp key={box._id} id={box._id} name={box.name} price={box.price} quantity={box.quantity} volume={box.volume}/>}) : null)
+                  ((reload && arr.length!==0) ? arr.map((box)=>{return <ItemsComp key={box._id} id={box._id} name={box.name} price={box.price} quantity={box.quantity} volume={box.volume}/>}) :<> <img className="voidimage" src={voidimg} /> <br /></>)
             }
         </div>
       </div>

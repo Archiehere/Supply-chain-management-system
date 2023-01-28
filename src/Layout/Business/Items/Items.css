@@ -9,11 +9,11 @@ top:4vh;
     top:120px;
   }
   #groupsdiv{
-    background-color: #512da8;
+    /* background-color: #512da8; */
     width:54.8vw;
     position:absolute;
-    top:200px;
-    left:270px;
+    top:180px;
+    left:250px;
     padding:20px;
     z-index:2;
   }

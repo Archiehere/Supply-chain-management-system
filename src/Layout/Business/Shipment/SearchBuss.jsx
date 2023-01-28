@@ -8,10 +8,11 @@ import WarehouseBox from "../../../Warehouse/components/WarehouseBox";
 import countries from '../../../countries.js';
 import { useNavigate } from "react-router-dom";
 
+
 function SearchBuss(){
 
 const[search , setSearch]= useState();
-const navigate = useNavigate();
+const navigate= useNavigate();
 
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
@@ -44,7 +45,6 @@ function handleId(e){
   localStorage.setItem("businessid" ,e.currentTarget.id );
   navigate('/destware');
 }
-
 function getGroup(arr){
 return(
     <div className='borderpara'>
@@ -52,18 +52,16 @@ return(
    </div>
 )
 }
-
 return(<>
-
 {(experience.length)?<div id='groupsdiv2'>{experience.map((rest)=>getGroup(rest))}</div>:null}
 {/* {(reload)?experience.map((rest)=>getGroup(rest)):null} */}
 
 <Nav />
 <h1 id='warehead'>Search Another Bussiness</h1>
 <div id='createinp'>
-    <div id='padder'>
+    {/* <div id='padder'> */}
 <input id='inputArr3' type='text' placeholder='Search Another Bussiness' required autoComplete="off"  onChange={handleapi}/>
-</div>
+{/* </div> */}
 {/* <button id='SubmitBtn' onClick={handleapi} >Select</button> */}
 </div>
 </>)

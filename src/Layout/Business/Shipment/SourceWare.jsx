@@ -6,13 +6,15 @@ import BaseUrl from "../../../util/BaseUrl";
 import ItemsComp from "../Items/ItemsComp";
 import WarehouseBox from "../../../Warehouse/components/WarehouseBox";
 import countries from '../../../countries.js'
+import { useNavigate } from "react-router";
 
 function SourceDest(){
 
-const[source , setSource]= useState();
+  const Navhandler = useNavigate(); 
+  const[source , setSource]= useState();
 
 function handleapi(){
-
+  Navhandler("/searchbuss");
 }
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
@@ -20,7 +22,6 @@ const config ={
     Authorization:`Bearer ${accesstoken}`,
   }
 }
-
 let [experience,setexp] = useState([]);
 var [reload,setreload] = useState(false);
 
@@ -36,15 +37,25 @@ useEffect(()=>{
     console.log(err);
   })
 },[])
-// const cont=experience.location; const loc=countries[cont]; console.log(loc); 
-// code={cont} ;
-// location={loc};
+
+
+useEffect(()=>{
+    BaseUrl.get('/w/warehouse',config)
+    .then((res)=>
+    {
+      console.log(res);
+      setexp(res.data.warehouses);
+      setreload(true);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[])
 
 function handleLocation(e){
-  console.log(e.currentTarget.id) ;
-  localStorage.setItem("sourceid" ,e.currentTarget.id )
-  document.getElementById("groupsdiv").style.display="none";
-  setSource(e.currentTarget.className)
+  console.log(e.target.value) ;
+  localStorage.setItem("sourceid" ,e.target.value )
+  setSource(e.target.value)
 }
 
 function getGroup(arr){
@@ -57,15 +68,19 @@ function showdiv(){
 }
 return(<>
 <div id='groupsdiv'>
-{experience.map((rest)=>getGroup(rest))}
+<select onChange={handleLocation}  name="month" id="month" >
+            
+            <option value={undefined}>None</option>
+          {
+          experience.map((associ) => {
+            return <option key={`associ${associ.location}`} value={associ.location}>{associ.name} , {associ.location}</option>
+          })
+         }
+        </select>
     </div>
 <Nav />
 <h1 id='warehead'>Select Source Warehouses</h1>
 <div id='createinp'>
-    <div id='padder'>
-<input id='inputArr2' type='text' placeholder='--select--' value={source} required autoComplete="off"  onClick={showdiv}/>
-
-</div>
 <button id='SubmitBtn' onClick={handleapi} >Select</button>
 </div>
 </>)

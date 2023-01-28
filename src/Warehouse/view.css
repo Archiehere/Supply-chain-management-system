@@ -92,6 +92,7 @@ top:5vh;
   font-size: 1vw;
   height: 3.33vw;
   width: 55vw;
+  /* margin-top:-80px; */
   border-radius: 0.5vw;
   border: 1px solid #f8f8f8;
   border-color: aliceblue;
@@ -101,7 +102,7 @@ top:5vh;
 #createinp{
   position: absolute;
   left:270px;
-  top:150px;
+  top:280px;
 }
 #padder{
   margin-bottom:40px;
