@@ -13,6 +13,7 @@ import countries from "../countries.js";
 const left = require('./images/leftarrow.svg').default
 const add = require('./images/add.svg').default
 const edit = require('./images/edit.svg').default
+const voidimg = require('./images/void.svg').default
 
 const Warehouse = () => {
   const Navhandler= useNavigate();
@@ -69,11 +70,11 @@ useEffect(()=>{
         <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
             {
-                  (reload?  experience.map((box)=>{
+                  ((reload && experience.length!==0) ?  experience.map((box)=>{
                     const cont=box.location; const loc=countries[cont]; console.log(loc); 
                     
-                    return <WarehouseBox key={box._id} id={box._id} name={box.name} code={cont} location={ loc} max_volume={box.max_volume} />
-                    }) : null)
+                    return <WarehouseBox key={box._id} id={box._id} name={box.name} code={cont} location={ loc} filled_volume={box.filled_volume} max_volume={box.max_volume} />
+                    }) : <> <img className="voidimage" src={voidimg} /> <br /></>)
             }
         </div>
       </div>
