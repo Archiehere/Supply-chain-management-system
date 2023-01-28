@@ -15,15 +15,12 @@ import BaseUrl from '../../util/BaseUrl';
 import { func } from 'prop-types';
 
 const illustration = require("../images/setpass.svg").default;
-let token= localStorage.getItem("accesstoken")
-        const config ={
-            headers:{
-              Authorization:`Bearer ${token}`,
-            }
-          }
+
 
 
 function Passwordset(){
+
+    // console.log(token);
     const Navhandler = useNavigate();
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
@@ -80,6 +77,15 @@ function Passwordset(){
     }
 
     function handleapi(){
+
+      let token= localStorage.getItem("accesstoken")
+      // console.log(token);
+              const config ={
+                  headers:{
+                    Authorization:`${token}`,
+                  }
+                }
+
         setLoading(true);
         
         if(password===password2 && password)
@@ -91,9 +97,9 @@ function Passwordset(){
                 console.log(res);
                 if (res.data.success === true) {
                     // localStorage.clear();
-                    localStorage.setItem("accesstoken",res.data.token);
+                    // localStorage.setItem("accesstoken",res.token);
                     Navhandler("/warehouse");
-                    localStorage.clear();
+                    
                   } else {
                     console.log("f");
                   }

@@ -1,6 +1,6 @@
 import React from "react";
 import '../view.css'
-
+import countries from "../../countries";
 const edit= require('../images/edit.svg').default
 
 const WarehouseBox = (props) => {
@@ -19,12 +19,12 @@ const WarehouseBox = (props) => {
     // const username = sessionStorage.getItem("username")
 // const viewusername = sessionStorage.getItem("viewusername")
     // console.log(props.box);
-
+    
     return <div className="expbox">
         {/* <img className="explogo" src={box.box.company_data.logo} alt="logo"/> */}
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
-        <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{props.location}  </p>
+        <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
         {/* <p style={{fontWeight: '400',fontSize: '1.2vw',color:"#EBEBF0"}}>{box.box.start_date}  - {end_date} · </p> */}
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>{props.max_volume} </p>
         </div>

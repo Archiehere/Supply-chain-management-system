@@ -15,13 +15,22 @@ const countries =  {'ABW':"Aruba",'AFG':"Afghanistan",'AIA':"Anguila",'ALB':"Alb
         'IRN':"Iran (Islamic Republic of)",'IRQ':"Iraq",'ISL':"Iceland",'ISR':"Israel",'ITA':"Italy",'JAM':"Jamaica",'JEY':"Jersey",'JOR':"Jordan",'JPN':"Japan",
         'KAZ':"Kazakhstan",'KEN':"Kenya",'KGZ':"Kyrgyzstan",'KHM':"Cambodia",'KIR':"Kiribati",'KNA':"Saint Kitts and Nevis",'KWT':" Kuwait",'LBN':"Lebanon",
         'LBR':"Liberia",'LBY':"Libya",'LCA':"Saint Lucia",'LIE':"Liechtenstein",'LKA':"Sri Lanka",'LSO':"Lesotho",'LTU':"Lithuania",'LUX':"Luxembourg",'LVA':"Latvia",
-        'MAC':"Macao",'MAR':"Saint Martin (French part)",'MCO':"",'MDA':"",'MDG':"",'MDV':"",'MEX':"",'MHL':"",'MKD':"",'MLI':"",'MLT':"",'MMR':"",'MNE':"",'MNG':"",'MNP':"",'MOZ':"",'MRT':"",'MSR':"",'MTQ':"",'MUS':"",
-        'MWI':"",'MYS':"",'MYT':"",'NAM':"",'NCL':"",'NER':"",'NFK':"",'NGA':"",'NIC':"",'NIU':"",'NLD':"",'NOR':"",'NPL':"",'NRU':"",'NZL':"",'OMN':"",'PAK':"",
-        'PAN':"",'PCN':"",'PER':"",'PHL':"",'PLW':"",'PNG':"",'POL':"",'PRI':"",'PRT':"",'PRY':"",'PSE':"",'PYF':"",'QAT':"",'REU':"",'ROU':"",'RUS':"",'RWA':"",
-        'SAU':"",'SDN':"",'SEN':"",'SGP':"",'SGS':"",'SHN':"",'SJM':"",'SLB':"",'SLE':"",'SLV':"",'SMR':"",'SOM':"",'SPM':"",'SRB':"",'SSD':"",'STP':"",'SUR':"",
-        'SVK':"",'SVN':"",'SWE':"",'SWZ':"",'SYC':"",'SYR':"",'TCA':"",'TCD':"",'TGO':"",'THA':"",'TJK':"",'TKL':"",'TKM':"",'TLS':"",'TON':"",'TTO':"",'TUN':"",
-        'TUR':"",'TUV':"",'TWN':"",'TZA':"",'UGA':"",'UKR':"",'URY':"",'USA':"",'UZB':"",'VCT':"",'VEN':"",'VNM':"",'VUT':"",'WLF':"",'WSM':"",'YEM':"",'ZAF':"",
-        'ZMB':"",'ZWE':""}
+        'MAC':"Macao",'MAR':"Saint Martin (French part)",'MCO':"Monaco",'MDA':"Moldova, Republic of",'MDG':"Madagascar",'MDV':"Maldives",'MEX':"Mexico",'MHL':"Marshall Islands",
+        'MKD':"North Macedonia",'MLI':"Mali",'MLT':"Malta",'MMR':"Myanmar",'MNE':"Montenegro",'MNG':"Mongolia",'MNP':"Northern Mariana Islands",'MOZ':"Mozambique",
+        'MRT':"Mauritania",'MSR':"Montserrat",'MTQ':"Martinique",'MUS':"Mauritius",'MWI':"Malawi",'MYS':"Malaysia",'MYT':"Mayotte",'NAM':"Namibia",'NCL':"New Caledonia",
+        'NER':"Niger",'NFK':"Norfolk Island",'NGA':"Nigeria",'NIC':"Nicaragua",'NIU':"Niue",'NLD':"Netherlands",'NOR':"Norway",'NPL':"Nepal",'NRU':"Nauru",
+        'NZL':"New Zealand",'OMN':"Oman",'PAK':"Pakistan",'PAN':"Panama",'PCN':"Pitcairn",'PER':"Peru",'PHL':"Philippines",'PLW':"Palau",'PNG':"Papua New Guinea",
+        'POL':"Poland",'PRI':"Puerto Rico",'PRT':"Portugal",'PRY':"Paraguay",'PSE':"Palestine, State of",'PYF':"French Polynesia",'QAT':"Qatar",'REU':"Réunion",
+        'ROU':"Romania",'RUS':"Russian Federation",'RWA':"Rwanda",'SAU':"Saudi Arabia",'SDN':"Sudan",'SEN':"Senegal",'SGP':"Singapore",'SGS':"South Georgia and the South Sandwich Islands",
+        'SHN':"Saint Helena, Ascension and Tristan da Cunha",'SJM':"Svalbard and Jan Mayen",'SLB':"Solomon Islands",'SLE':"Sierra Leone",'SLV':"El Salvador",
+        'SMR':"San Marino",'SOM':"Somalia",'SPM':"Saint Pierre and Miquelon",'SRB':"Serbia",'SSD':"South Sudan",'STP':"Sao Tome and Principe",'SUR':"Suriname",
+        'SVK':"Slovakia",'SVN':"Slovenia",'SWE':"Sweden",'SWZ':"Eswatini",'SYC':"Seychelles",'SYR':"Syrian Arab Republic",'TCA':"Turks and Caicos Islands",'TCD':"Chad",
+        'TGO':"Togo",'THA':"Thailand",'TJK':"Tajikistan",'TKL':"Tokelau",'TKM':"Turkmenistan",'TLS':"Timor-Leste",'TON':"Tonga",'TTO':"Trinidad and Tobago",'TUN':"Tunisia",
+        'TUR':"Türkiye",'TUV':"Tuvalu",'TWN':"Taiwan, Province of China",'TZA':"Tanzania, United Republic of",'UGA':"Uganda",'UKR':"Ukraine",'URY':"Uruguay",
+        'USA':"United States of America",'UZB':"Uzbekistan",'VCT':"Holy See",'VEN':"Venezuela (Bolivarian Republic of)",'VNM':"Viet Nam",'VUT':"Vanuatu",'WLF':"Wallis and Futuna",
+        'WSM':"Samoa",'YEM':"Yemen",'ZAF':"South Africa",'ZMB':"Zambia",'ZWE':"Zimbabwe"}
+ 
+ 
 
 
 
@@ -40,3 +49,5 @@ const countryiso = ['ABW','AFG','AIA','ALB','AND','ARE','ARG','ARM','ASM','ATA',
 'SVK','SVN','SWE','SWZ','SYC','SYR','TCA','TCD','TGO','THA','TJK','TKL','TKM','TLS','TON','TTO','TUN',
 'TUR','TUV','TWN','TZA','UGA','UKR','URY','USA','UZB','VCT','VEN','VNM','VUT','WLF','WSM','YEM','ZAF',
 'ZMB','ZWE'];
+
+export default countries;

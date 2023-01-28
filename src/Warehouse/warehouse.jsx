@@ -8,6 +8,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import './view.css'
 import WarehouseBox from "./components/WarehouseBox";
 import BaseUrl from "../util/BaseUrl";
+import countries from "../countries.js";
+
 const left = require('./images/leftarrow.svg').default
 const add = require('./images/add.svg').default
 const edit = require('./images/edit.svg').default
@@ -19,9 +21,9 @@ const Warehouse = () => {
     borderLeft:'3px solid #A950FB',
    
 }
-const username = sessionStorage.getItem("username") || ""
+// const username = sessionStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-var viewusername = sessionStorage.getItem("viewusername");
+// var viewusername = sessionStorage.getItem("viewusername");
 
 const config ={
   headers:{
@@ -33,6 +35,7 @@ let [experience,setexp] = useState([]);
 var [reload,setreload] = useState(false);
 
 function handlexp (){
+  console.log(accesstoken);
   BaseUrl.get('/w/warehouse',config)
   .then((res)=>
   {
@@ -46,15 +49,17 @@ function handlexp (){
 }
 useEffect(()=>handlexp(),[])
 
-if(username!=viewusername)
-    {
-        var cols=document.getElementsByClassName('action')
-        for(var i = 0; i < cols.length; i++) {
-            cols[i].style.visibility = 'hidden';
-        }
-    }
+// if(username!=viewusername)
+//     {
+//         var cols=document.getElementsByClassName('action')
+//         for(var i = 0; i < cols.length; i++) {
+//             cols[i].style.visibility = 'hidden';
+//         }
+//     }
 
   return (
+
+    
     <div>
       <Nav />
       <div id="viewskill">
@@ -63,7 +68,7 @@ if(username!=viewusername)
         <div>
           <WarehouseBox />
             {
-                  (reload?  experience.map((box)=>{console.log(box); return <WarehouseBox key={box.id} name={box.name}  location={box.location} max_volume={box.max_volume} />}) : null)
+                  (reload?  experience.map((box)=>{ const cont=box.location; console.log(box); return <WarehouseBox key={box.id} name={box.name}  location={ countries.cont} max_volume={box.max_volume} />}) : null)
             }
         </div>
       </div>

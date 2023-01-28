@@ -35,7 +35,7 @@ const Otp = () => {
     }).then((res) => {
       console.log(res);
       console.log(res.status);
-    sessionStorage.setItem("token" , res.data.token);
+    // sessionStorage.setItem("token" , res.data.token);
     })
       .catch((err) => {
         console.log(err);
@@ -57,11 +57,12 @@ const Otp = () => {
             email:email,
             otp:value
         }).then((res) => {
-            console.log(res.data);
+            console.log(res);
+            localStorage.setItem("accesstoken",res.data.token);
             setLoading(false);
             if(res.data.success===true)
             {
-                localStorage.setItem("accesstoken",res.data.token);
+                
                 if(context==='register')
                 Navhandler("/set_password");
                 else
