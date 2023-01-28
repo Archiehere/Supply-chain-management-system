@@ -72,7 +72,7 @@ function handleLocation2(e){
     console.log(e.currentTarget.id) ;
     console.log(e.currentTarget.className) ;
     localStorage.setItem("quantity" ,e.currentTarget.id )
-    localStorage.setItem("volume" ,e.currentTarget.className )
+    localStorage.setItem("volume" , e.currentTarget.className)
     document.getElementById("groupsdiv3").style.display="none";
     setItem(e.currentTarget.id);
   }

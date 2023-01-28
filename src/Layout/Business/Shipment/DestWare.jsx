@@ -11,7 +11,7 @@ import FormData from 'form-data';
 import axios from "axios";
 
 function SourceDest(){
-
+var a;
   const Navhandler = useNavigate(); 
   const fd = new FormData();
   const[source , setSource]= useState();
@@ -32,9 +32,14 @@ fd.append("quantity" , quantity);
 fd.append("dist" , distance);
 fd.append("volumn" , volume);
 
+
 axios.post("https://ml-z5p7.onrender.com/ml/" , fd)
 .then((res)=>{
+a = "Predicted Price"
     console.log(res);
+    console.log(res.data.PredictedPrice);
+    localStorage.setItem("pricepredict" , res.data.PredictedPrice);
+    Navhandler("/shipping");
 })
 .catch((err)=>{
     console.log(err);
@@ -62,6 +67,7 @@ useEffect(()=>{
     console.log(res);
     setexp(res.data.warehouses);
     setreload(true);
+    
   })
   .catch((err)=>{
     console.log(err);

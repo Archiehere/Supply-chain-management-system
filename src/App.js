@@ -20,6 +20,7 @@ import Shipment from "./Layout/Business/Shipment/SourceWare";
 import SourceDest from "./Layout/Business/Shipment/SourceWare";
 import DestWare from "./Layout/Business/Shipment/DestWare";
 import SearchBuss from "./Layout/Business/Shipment/SearchBuss";
+import Shipping from "./Layout/Business/Shipment/Shipping";
 
 const App = () => {
   return <BrowserRouter>
@@ -48,6 +49,7 @@ const App = () => {
     <Route path="/shipment" element={<ProtectedRoute><SourceDest /></ProtectedRoute>}></Route>
     <Route path="/destware" element={<ProtectedRoute><DestWare /></ProtectedRoute>}></Route>
     <Route path="/searchbuss" element={<ProtectedRoute><SearchBuss /></ProtectedRoute>}></Route>
+    <Route path="/shipping" element={<ProtectedRoute><Shipping /></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;
