@@ -47,7 +47,9 @@ function handlexp (){
     console.log(err);
   })
 }
-useEffect(()=>handlexp(),[])
+useEffect(()=>handlexp(),[reload])
+
+
 // console.log(countries.ABW);
 // if(username!=viewusername)
 //     {
@@ -64,7 +66,7 @@ useEffect(()=>handlexp(),[])
       <Nav />
       <div id="viewskill">
         {/* <img src={left} alt='back' onClick={() => Navhandler("/account")}/>  */}
-        <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
+        <span>Warehouses</span> <img className="action" onClick={()=>{Navhandler("/createwarehouse") }} id="add" src={add} alt='add' ></img>
         <div>
             {
                   (reload?  experience.map((box)=>{

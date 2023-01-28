@@ -2,9 +2,13 @@ import Nav from "../navbar/navbar";
 import Input from "../Authentication/components/authinput";
 import { useEffect, useState } from "react";
 import BaseUrl from "../util/BaseUrl";
+import { useNavigate } from "react-router";
 
 function EditWarehouse(){
 
+    const [arr , setArr] = useState([]);
+    const [loading,setLoading] = useState(false)
+    const Navhandler = useNavigate();
     let token= localStorage.getItem("accesstoken")
     const config ={
         headers:{
@@ -12,18 +16,23 @@ function EditWarehouse(){
         }
       }
 
+      let item = localStorage.getItem("ItemId");
 useEffect(()=>{
-BaseUrl.get("/w/warehouse" , config)
+BaseUrl.get(`/w/onewarehouse?warehouseId=${item}` , config)
 .then((res)=>{
     console.log(res);
+    console.log(res.data.warehouse.name);
+    // setArr(res.data.warehouse);
+    setName(res.data.warehouse.name)
+    setVolm(res.data.warehouse.max_volume)
 })
 .catch((err)=>{
     console.log(err);
 })
 } ,[])
 
-const [name , setName]= useState('');
-const [volm , setVolm] = useState('');
+const [name , setName]= useState();
+const [volm , setVolm] = useState();
 
 function handleName(e){
     setName(e.target.value);
@@ -35,23 +44,46 @@ function handleVolm(e){
 
 function handleApi(){
 
+    setLoading(true);
+	
+	
+		BaseUrl.patch(`/w/warehouse?warehouseId=${item}`,{
+			
+				"name":name,
+				"max_volume":volm
+			    },config).then((res) => {
+			console.log(res);
+            setLoading(false);
+			if (res.data.success === true) {
+				// localStorage.clear();
+				
+				Navhandler("/warehouse");
+				
+			  } else {
+				console.log("f");
+			  }
+			setLoading(false);
+		  })
+			.catch((err) => {
+			  console.log(err);
+			  setLoading(false);
+			}
+			);
+
 }
 return(
     <>
     <Nav />
-    <h1 id='Itemhead'>Add Items</h1>
+    <h1 id='Itemhead'>Edit Warehouse</h1>
 <div id='createinps'>
     <div id='padder'>
-<Input inp="inputArr" err_id="log" 
-value={name}
-onchange={handleName}
-type="text" lable='Item Name' placeholder='Enter Item Name' />
+    <label>Warehouse Name</label>
+<input type='text' value={name} onChange={handleName} id='inputArr2' placeholder="Enter Warehouse"></input>
+
 </div>
 <div id='padder'>
-<Input inp="inputArr" err_id="log" 
-value={volm}
-onchange={handleVolm}
-type="text" lable='Item Volume' placeholder='Enter Volume of an item' />
+<label>Max Volume</label>
+<input type='text' value={volm} onChange={handleVolm} id='inputArr2' placeholder="Enter Volume"></input>
 </div>
 <button id='SubmitBtn' onClick={handleApi}>Save Changes</button>
 </div>

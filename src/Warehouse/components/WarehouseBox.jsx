@@ -19,7 +19,7 @@ const WarehouseBox = (props) => {
           Authorization:`Bearer ${token}`,
         }
       }
-console.log(props);
+
 const navigate = useNavigate();
 function getItems(e){
 console.log(e.currentTarget.id);
@@ -49,7 +49,7 @@ navigate("/editwarehouse")
         
         <p style={{ fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
         <img crossorigin="anonymous" src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
-        <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>Country:-{ props.location }  </p>
+        <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Max Volume-{props.max_volume} </p>
         <img src={deleteimg} className='deleteimg' id={props.id} onClick={deletefunc}></img>
         <img src={editimg} className='deleteimg2' id={props.id} onClick={editfunc}></img>
