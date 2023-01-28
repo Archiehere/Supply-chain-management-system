@@ -48,7 +48,7 @@ function handlexp (){
   })
 }
 useEffect(()=>handlexp(),[])
-console.log(countries.ABW);
+// console.log(countries.ABW);
 // if(username!=viewusername)
 //     {
 //         var cols=document.getElementsByClassName('action')
@@ -66,9 +66,9 @@ console.log(countries.ABW);
         {/* <img src={left} alt='back' onClick={() => Navhandler("/account")}/>  */}
         <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
-          <WarehouseBox />
+          {/* <WarehouseBox /> */}
             {
-                  (reload?  experience.map((box)=>{ const cont=box.location; const loc=countries[cont]; console.log(loc); return <WarehouseBox key={box.id} name={box.name}  location={ loc} max_volume={box.max_volume} />}) : null)
+                  (reload?  experience.map((box)=>{ const cont=box.location; const loc=countries[cont];  return <WarehouseBox key={box.id} name={box.name}  location={ loc} max_volume={box.max_volume} />}) : null)
             }
         </div>
       </div>

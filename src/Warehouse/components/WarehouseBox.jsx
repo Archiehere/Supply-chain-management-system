@@ -20,6 +20,8 @@ const WarehouseBox = (props) => {
 // const viewusername = sessionStorage.getItem("viewusername")
     // console.log(props.box);
     
+    
+
     return <div className="expbox">
         {/* <img className="explogo" src={box.box.company_data.logo} alt="logo"/> */}
         <div>
