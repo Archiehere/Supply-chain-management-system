@@ -13,6 +13,9 @@ import Idpage from "./Layout/Customer/Idpage";
 // import Warehouse from "./Warehouse/warehouse";
 import Warehouse from './Warehouse/warehouse.jsx'
 import CreateWarehouse from "./Warehouse/CreateWarehouse";
+import ViewItems from "./Layout/Business/Items/ViewItems";
+import AddItems from "./Layout/Business/Items/AddItems";
+import EditWarehouse from "./Warehouse/EditWarehouse";
 
 const App = () => {
   return <BrowserRouter>
@@ -31,6 +34,9 @@ const App = () => {
    
     <Route path="/warehouse" element={<ProtectedRoute><Warehouse /></ProtectedRoute>}></Route>
     <Route path="/createwarehouse" element={<ProtectedRoute><CreateWarehouse /></ProtectedRoute>}></Route>
+    <Route path="/viewItems" element={<ProtectedRoute><ViewItems /></ProtectedRoute>}></Route>
+    <Route path="/additems" element={<ProtectedRoute><AddItems /></ProtectedRoute>}></Route>
+    <Route path="/editWarehouse" element={<ProtectedRoute><EditWarehouse /></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;

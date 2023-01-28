@@ -1,21 +1,62 @@
 import React from "react";
 import '../view.css'
 import countries from "../../countries";
-const edit= require('../images/edit.svg').default
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/fontawesome-free-solid";
+import deleteimg from '../images/deleteimg.svg';
+import editimg from '../images/edit.svg'
+import { useNavigate } from "react-router-dom";
+import BaseUrl from "../../util/BaseUrl";
+// const edit= require('../images/edit.svg').default
 
 const WarehouseBox = (props) => {
-function clickedFunc(e){
+    let token= localStorage.getItem("accesstoken")
+    const config ={
+        headers:{
+          Authorization:`Bearer ${token}`,
+        }
+      }
+console.log(props);
+const navigate = useNavigate();
+function getItems(e){
 console.log(e.currentTarget.id);
+navigate("/viewItems")
+localStorage.setItem("ItemId" ,e.currentTarget.id );
 }
-    return <div className="expbox">
-        <div className='boxes' id={props._id} onClick={clickedFunc}>
+
+function deletefunc(e){
+console.log(e.currentTarget.id);
+document.getElementById(e.currentTarget.id).style.display="none";
+BaseUrl.delete("/w/warehouse?warehouseId="+e.currentTarget.id , config)
+.then((res)=>{
+    console.log(res);
+})
+.catch((err)=>{
+console.log(err);
+})
+}
+
+function editfunc(e){
+console.log(e.currentTarget.value);
+localStorage.setItem("ItemId" ,e.currentTarget.id );
+navigate("/editwarehouse")
+}
+    return <div className="expbox" id={props.id}>
         <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
-        <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props._id}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>{props.max_volume} </p>
+        <img src={deleteimg} className='deleteimg' id={props.id} onClick={deletefunc}></img>
+        <img src={editimg} className='deleteimg2' id={props.id} onClick={editfunc}></img>
+        <FontAwesomeIcon
+                  icon={faEye}
+                  onClick={getItems}
+                  id={props.id}
+                  className='eyecloseimg'
+                />
         </div>
-        {/* {(username===viewusername)?<img  className="editicon action" src={edit} />:null} */}
-    </div>
 }
 
 export default WarehouseBox;

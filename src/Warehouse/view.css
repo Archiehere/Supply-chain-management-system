@@ -8,14 +8,11 @@
   padding: 2vw;
 }
 
-.boxes{
-  border:2px solid white;
-}
-
 #viewskill span {
     font-size: 1.7vw;
     font-weight: 700;
-    margin-left: 1vw;
+    /* margin-left: 1vw; */
+    margin-bottom: 6vw;
 }
 #viewskill img {
   width: 1.2vw;
@@ -38,6 +35,11 @@
     vertical-align: top;
     float: right;
     cursor: pointer;
+}
+.expbox{
+  margin-top: 2vw;
+  padding-left: 2vh;
+  border-bottom: solid 6px #512da8;
 }
 #warehead{
 position:absolute;
@@ -76,4 +78,34 @@ height:3.33vw;
   text-align: center;
   font-weight:bold;
   cursor:pointer;
+}
+.expbox{
+  margin-top: 2vw;
+  padding-left: 2vh;
+  border-bottom: solid 6px #512da8;
+}
+.expbox:hover{
+  background-color: #13131A;
+  cursor: pointer;
+}
+.eyecloseimg{
+  position: absolute;
+  width:20px;
+  margin-top:-40px;
+  margin-left: 70.63vw;
+  height:20px;
+}
+.deleteimg{
+  position: absolute;
+  width:24px;
+  margin-top:-38px;
+  margin-left: 68.63vw;
+  height:20px;
+}
+.deleteimg2{
+  position: absolute;
+  width:24px;
+  margin-top:-38px;
+  margin-left: 66.63vw;
+  height:20px;
 }

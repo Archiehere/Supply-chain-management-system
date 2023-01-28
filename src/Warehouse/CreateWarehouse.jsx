@@ -5,7 +5,11 @@ import Authblock from "../Authentication/components/authblock";
 import BaseUrl from "../util/BaseUrl";
 import Loader from "../loader" 
 import { useNavigate } from "react-router";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/fontawesome-free-solid";
 
 
 function CreateWarehouse(){

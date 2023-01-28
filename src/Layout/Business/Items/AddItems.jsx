@@ -2,6 +2,8 @@ import Nav from "../../../navbar/navbar";
 import Input from "../../../Authentication/components/authinput";
 import { useState } from "react";
 import './Items.css'
+import BaseUrl from "../../../util/BaseUrl";
+import { useNavigate } from "react-router-dom";
 
 function AddItems(){
 var accesstoken=localStorage.getItem("accesstoken");
@@ -9,6 +11,8 @@ const [name , setName] = useState('');
 const [volm , setVolm] = useState('');
 const [price , setPrice] = useState('');
 const [quantity , setQuantity] = useState('');
+
+const Navhandler = useNavigate();
 
 function handleName(e){
     setName(e.target.value);
@@ -25,9 +29,28 @@ function handlePrice(e){
 function handleQuantity(e){
     setQuantity(e.target.value);
 }
-
+var accesstoken = localStorage.getItem("accesstoken");
+const config ={
+headers:{
+Authorization:`Bearer ${accesstoken}`,
+}
+}
+var id =localStorage.getItem("ItemId");
 function handleApi(){
-
+    BaseUrl.put("/i/?warehouseId=" +id , {
+    name:name , 
+    price:price,
+    quantity:quantity ,
+    volume:volm
+    },config)
+    .then((res)=>{
+       console.log(res);
+       Navhandler("/viewItems");
+    }
+    )
+    .catch((err)=>{
+    console.log(err);
+    })
 }
 
 return(<>
@@ -54,9 +77,9 @@ type="text" lable='Price' placeholder='Enter Price per Item' />
 </div>
 <div id='padder'>
 <Input inp="inputArr" err_id="log" 
-value={price}
-onchange={handlePrice}
-type="text" lable='Price' placeholder='Enter Price per Item' />
+value={quantity}
+onchange={handleQuantity}
+type="text" lable='Quantity' placeholder='Enter Quantity of Item' />
 </div>
 <button id='SubmitBtn' onClick={handleApi}>Add</button>
 </div>

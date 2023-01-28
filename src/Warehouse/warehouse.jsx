@@ -35,7 +35,7 @@ let [experience,setexp] = useState([]);
 var [reload,setreload] = useState(false);
 
 function handlexp (){
-  console.log(accesstoken);
+  // console.log(accesstoken);
   BaseUrl.get('/w/warehouse',config)
   .then((res)=>
   {
@@ -48,7 +48,7 @@ function handlexp (){
   })
 }
 useEffect(()=>handlexp(),[])
-
+console.log(countries.ABW);
 // if(username!=viewusername)
 //     {
 //         var cols=document.getElementsByClassName('action')
@@ -66,9 +66,8 @@ useEffect(()=>handlexp(),[])
         {/* <img src={left} alt='back' onClick={() => Navhandler("/account")}/>  */}
         <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
-          <WarehouseBox />
             {
-                  (reload?  experience.map((box)=>{ const cont=box.location; console.log(box); return <WarehouseBox key={box.id} name={box.name}  location={ countries.cont} max_volume={box.max_volume} />}) : null)
+                  (reload?  experience.map((box)=>{ const cont=box.location; const loc=countries[cont]; console.log(loc); return <WarehouseBox key={box._id} id={box._id} name={box.name}  location={ loc} max_volume={box.max_volume} />}) : null)
             }
         </div>
       </div>
