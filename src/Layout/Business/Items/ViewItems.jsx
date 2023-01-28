@@ -44,7 +44,7 @@ return(<>
         <span>Warehouse's Items</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/additems")}></img>
         <div>
             {
-                  ((reload && arr.length!==0) ? arr.map((box)=>{return <ItemsComp key={box._id} id={box._id} name={box.name} price={box.price} quantity={box.quantity} volume={box.volume}/>}) :<> <img className="voidimage" src={voidimg} /> <br /></>)
+                  ((reload && arr.length!==0) ? arr.map((box)=>{return <ItemsComp key={box._id} id={box._id} category={box.category} commodity={box.commodity} price={box.price} quantity={box.quantity} volume={box.volume}/>}) :<> <img className="voidimage" src={voidimg} /> <br /></>)
             }
         </div>
       </div>
