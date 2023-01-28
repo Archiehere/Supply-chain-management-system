@@ -12,15 +12,15 @@ function EditWarehouse(){
         }
       }
 
-useEffect(()=>{
-BaseUrl.get("/w/warehouse" , config)
-.then((res)=>{
-    console.log(res);
-})
-.catch((err)=>{
-    console.log(err);
-})
-} ,[])
+// useEffect(()=>{
+// BaseUrl.get("/w/warehouse" , config)
+// .then((res)=>{
+//     console.log(res);
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
+// } ,[])
 
 const [name , setName]= useState('');
 const [volm , setVolm] = useState('');
@@ -39,19 +39,19 @@ function handleApi(){
 return(
     <>
     <Nav />
-    <h1 id='Itemhead'>Add Items</h1>
+    <h1 id='Itemhead'>Edit Warehouse</h1>
 <div id='createinps'>
     <div id='padder'>
 <Input inp="inputArr" err_id="log" 
 value={name}
 onchange={handleName}
-type="text" lable='Item Name' placeholder='Enter Item Name' />
+type="text" lable='Warehouse Name' placeholder='Enter Warehouse Name' />
 </div>
 <div id='padder'>
 <Input inp="inputArr" err_id="log" 
 value={volm}
 onchange={handleVolm}
-type="text" lable='Item Volume' placeholder='Enter Volume of an item' />
+type="text" lable='Maximum Volume(m^3)' placeholder='Enter Volume of Warehouse' />
 </div>
 <button id='SubmitBtn' onClick={handleApi}>Save Changes</button>
 </div>

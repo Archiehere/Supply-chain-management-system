@@ -16,6 +16,7 @@ import CreateWarehouse from "./Warehouse/CreateWarehouse";
 import ViewItems from "./Layout/Business/Items/ViewItems";
 import AddItems from "./Layout/Business/Items/AddItems";
 import EditWarehouse from "./Warehouse/EditWarehouse";
+import Shipment from "./Layout/Business/Shipment/Shipment";
 
 const App = () => {
   return <BrowserRouter>
@@ -37,6 +38,7 @@ const App = () => {
     <Route path="/viewItems" element={<ProtectedRoute><ViewItems /></ProtectedRoute>}></Route>
     <Route path="/additems" element={<ProtectedRoute><AddItems /></ProtectedRoute>}></Route>
     <Route path="/editWarehouse" element={<ProtectedRoute><EditWarehouse /></ProtectedRoute>}></Route>
+    <Route path="/shipment" element={<ProtectedRoute><Shipment /></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;

@@ -34,8 +34,7 @@ const config ={
 let [experience,setexp] = useState([]);
 var [reload,setreload] = useState(false);
 
-function handlexp (){
-  // console.log(accesstoken);
+useEffect(()=>{
   BaseUrl.get('/w/warehouse',config)
   .then((res)=>
   {
@@ -46,17 +45,10 @@ function handlexp (){
   .catch((err)=>{
     console.log(err);
   })
-}
-useEffect(()=>handlexp(),[])
-console.log(countries.ABW);
-// if(username!=viewusername)
-//     {
-//         var cols=document.getElementsByClassName('action')
-//         for(var i = 0; i < cols.length; i++) {
-//             cols[i].style.visibility = 'hidden';
-//         }
-//     }
 
+},[])
+  
+// console.log(countries.ABW);
   return (
 
     
@@ -67,7 +59,7 @@ console.log(countries.ABW);
         <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
             {
-                  (reload?  experience.map((box)=>{ const cont=box.location; const loc=countries[cont]; console.log(loc); return <WarehouseBox key={box._id} id={box._id} name={box.name}  location={ loc} max_volume={box.max_volume} />}) : null)
+                  (reload?  experience.map((box)=>{ const cont=box.location; const loc=countries[cont];  return <WarehouseBox key={box._id} id={box._id} name={box.name}  location={ loc} max_volume={box.max_volume} />}) : null)
             }
         </div>
       </div>

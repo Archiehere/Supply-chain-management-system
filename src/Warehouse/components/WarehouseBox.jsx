@@ -19,7 +19,7 @@ const WarehouseBox = (props) => {
           Authorization:`Bearer ${token}`,
         }
       }
-console.log(props);
+
 const navigate = useNavigate();
 function getItems(e){
 console.log(e.currentTarget.id);
