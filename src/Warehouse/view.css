@@ -8,6 +8,10 @@
   padding: 2vw;
 }
 
+.boxes{
+  border:2px solid white;
+}
+
 #viewskill span {
     font-size: 1.7vw;
     font-weight: 700;
