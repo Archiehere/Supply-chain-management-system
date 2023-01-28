@@ -11,7 +11,8 @@
 #viewskill span {
     font-size: 1.7vw;
     font-weight: 700;
-    margin-left: 1vw;
+    /* margin-left: 1vw; */
+    margin-bottom: 6vw;
 }
 #viewskill img {
   width: 1.2vw;
@@ -34,6 +35,11 @@
     vertical-align: top;
     float: right;
     cursor: pointer;
+}
+.expbox{
+  margin-top: 2vw;
+  padding-left: 2vh;
+  border-bottom: solid 6px #512da8;
 }
 #warehead{
 position:absolute;
