@@ -90,3 +90,33 @@ height:3.33vw;
   font-weight:bold;
   cursor:pointer;
 }
+.expbox{
+  margin-top: 2vw;
+  padding-left: 2vh;
+  border-bottom: solid 6px #512da8;
+}
+.expbox:hover{
+  background-color: #13131A;
+  cursor: pointer;
+}
+.eyecloseimg{
+  position: absolute;
+  width:20px;
+  margin-top:-40px;
+  margin-left: 70.63vw;
+  height:20px;
+}
+.deleteimg{
+  position: absolute;
+  width:24px;
+  margin-top:-38px;
+  margin-left: 68.63vw;
+  height:20px;
+}
+.deleteimg2{
+  position: absolute;
+  width:24px;
+  margin-top:-38px;
+  margin-left: 66.63vw;
+  height:20px;
+}

@@ -1,37 +1,65 @@
 import React from "react";
 import '../view.css'
 import countries from "../../countries";
-const edit= require('../images/edit.svg').default
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/fontawesome-free-solid";
+import deleteimg from '../images/deleteimg.svg';
+import editimg from '../images/edit.svg'
+import { useNavigate } from "react-router-dom";
+import BaseUrl from "../../util/BaseUrl";
+// const edit= require('../images/edit.svg').default
 
 const WarehouseBox = (props) => {
-    // var employment_type = ''
-    // var end_date = ''
-    // if(box.box.employment_type==1)
-    // employment_type = 'part-time'
-    // if(box.box.employment_type==2)
-    // employment_type = 'full-time'
-    // if(box.box.employment_type==3)
-    // employment_type = 'self-employed'
-    // if(box.box.end_date == null)
-    // end_date = 'Present'
-    // else
-    // end_date = box.box.end_date
-    // const username = sessionStorage.getItem("username")
-// const viewusername = sessionStorage.getItem("viewusername")
-    // console.log(props.box);
-    
-    
+    let token= localStorage.getItem("accesstoken")
+    const config ={
+        headers:{
+          Authorization:`Bearer ${token}`,
+        }
+      }
+console.log(props);
+const navigate = useNavigate();
+function getItems(e){
+console.log(e.currentTarget.id);
+navigate("/viewItems")
+localStorage.setItem("ItemId" ,e.currentTarget.id );
+}
 
-    return <div className="expbox">
-        {/* <img className="explogo" src={box.box.company_data.logo} alt="logo"/> */}
-        <div>
-        <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
-        <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
-        {/* <p style={{fontWeight: '400',fontSize: '1.2vw',color:"#EBEBF0"}}>{box.box.start_date}  - {end_date} · </p> */}
-        <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>{props.max_volume} </p>
+function deletefunc(e){
+console.log(e.currentTarget.id);
+document.getElementById(e.currentTarget.id).style.display="none";
+BaseUrl.delete("/w/warehouse?warehouseId="+e.currentTarget.id , config)
+.then((res)=>{
+    console.log(res);
+})
+.catch((err)=>{
+console.log(err);
+})
+}
+
+function editfunc(e){
+console.log(e.currentTarget.value);
+localStorage.setItem("ItemId" ,e.currentTarget.id );
+navigate("/editwarehouse")
+}
+    return <div className="expbox" id={props.id}>
+        
+        
+        <p style={{ fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
+        <img crossorigin="anonymous" src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
+        <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>Country:-{ props.location }  </p>
+        <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Max Volume-{props.max_volume} </p>
+        <img src={deleteimg} className='deleteimg' id={props.id} onClick={deletefunc}></img>
+        <img src={editimg} className='deleteimg2' id={props.id} onClick={editfunc}></img>
+        <FontAwesomeIcon
+                  icon={faEye}
+                  onClick={getItems}
+                  id={props.id}
+                  className='eyecloseimg'
+                />
         </div>
-        {/* {(username===viewusername)?<img  className="editicon action" src={edit} />:null} */}
-    </div>
 }
 
 export default WarehouseBox;
