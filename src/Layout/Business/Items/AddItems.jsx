@@ -4,6 +4,7 @@ import { useState } from "react";
 import './Items.css'
 import BaseUrl from "../../../util/BaseUrl";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 
 function AddItems(){
 var accesstoken=localStorage.getItem("accesstoken");
@@ -50,6 +51,7 @@ function handleApi(){
     )
     .catch((err)=>{
     console.log(err);
+    toast.error(err.response.data.msg);
     })
 }
 
@@ -82,6 +84,7 @@ onchange={handleQuantity}
 type="text" lable='Quantity' placeholder='Enter Quantity of Item' />
 </div>
 <button id='SubmitBtn' onClick={handleApi}>Add</button>
+<ToastContainer limit={1} position="top-center" theme="dark" />
 </div>
 </>)
 }

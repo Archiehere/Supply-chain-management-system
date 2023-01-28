@@ -10,7 +10,7 @@ import {
   faEye,
   faEyeSlash,
 } from "@fortawesome/fontawesome-free-solid";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 function CreateWarehouse(){
 	const Navhandler = useNavigate();
@@ -57,6 +57,7 @@ function handleapi(){
 			.catch((err) => {
 			  console.log(err);
 			  setLoading(false);
+			  toast.error(err.response.data.msg);
 			}
 			);
 }
@@ -333,6 +334,8 @@ type="text" lable='Maximum Volume(m^3)' placeholder='Enter Max-Volume' />
 </div>
 <button id='SubmitBtn' onClick={handleapi} >Create</button>
 </div>
-</>)}</div>
+</>)}
+<ToastContainer limit={1} position="top-center" theme="dark" />
+</div>
 }
 export default CreateWarehouse;
