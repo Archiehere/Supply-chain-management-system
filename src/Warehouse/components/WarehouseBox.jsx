@@ -66,7 +66,7 @@ const colors = {
 
         <p style={{ display:"inline-block", marginRight:"47.5vw",fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
         
-        <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
+        <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }</p>
         <img crossorigin="anonymous" style={{ width:"2vw",height:"auto"}} src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
         
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Max Volume-{props.max_volume} </p>
