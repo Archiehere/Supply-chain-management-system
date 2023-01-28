@@ -17,3 +17,17 @@ top:4vh;
     padding:20px;
     z-index:2;
   }
+  #groupsdiv2{
+    background-color: #512da890;
+  
+    width:54.8vw;
+    position:absolute;
+    top:200px;
+    left:270px;
+    padding:20px;
+    z-index:2;
+  }
+  .borderpara{
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+  }

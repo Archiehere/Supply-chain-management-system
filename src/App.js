@@ -18,6 +18,8 @@ import AddItems from "./Layout/Business/Items/AddItems";
 import EditWarehouse from "./Warehouse/EditWarehouse";
 import Shipment from "./Layout/Business/Shipment/SourceWare";
 import SourceDest from "./Layout/Business/Shipment/SourceWare";
+import DestWare from "./Layout/Business/Shipment/DestWare";
+import SearchBuss from "./Layout/Business/Shipment/SearchBuss";
 
 const App = () => {
   return <BrowserRouter>
@@ -44,6 +46,8 @@ const App = () => {
     <Route path="/additems" element={<ProtectedRoute><AddItems /></ProtectedRoute>}></Route>
     <Route path="/editWarehouse" element={<ProtectedRoute><EditWarehouse /></ProtectedRoute>}></Route>
     <Route path="/shipment" element={<ProtectedRoute><SourceDest /></ProtectedRoute>}></Route>
+    <Route path="/destware" element={<ProtectedRoute><DestWare /></ProtectedRoute>}></Route>
+    <Route path="/searchbuss" element={<ProtectedRoute><SearchBuss /></ProtectedRoute>}></Route>
 
   </Routes>
 </BrowserRouter>;;
