@@ -1,6 +1,6 @@
 import Nav from "../../../navbar/navbar";
 import Input from "../../../Authentication/components/authinput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Items.css'
 import BaseUrl from "../../../util/BaseUrl";
 import { useNavigate } from "react-router-dom";
@@ -8,16 +8,59 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function AddItems(){
 var accesstoken=localStorage.getItem("accesstoken");
-const [name , setName] = useState('');
+const [commodity , setcommodity] = useState('');
 const [volm , setVolm] = useState('');
 const [price , setPrice] = useState('');
 const [quantity , setQuantity] = useState('');
+const [categories , setcategories] = useState([]);
+const [commodities , setcommodities] = useState([]);
+const [category , setcategory] = useState('');
 
+// useEffect(()=>{BaseUrl.get("/i/categories")},[]);
+var accesstoken = localStorage.getItem("accesstoken");
+const config ={
+headers:{
+Authorization:`Bearer ${accesstoken}`,
+}
+}
+
+useEffect(()=>{
+    BaseUrl.get('/i/categories',config)
+    .then((res)=>
+    {
+      console.log(res);
+      setcategories(res.data.categories);
+    //   setreload(true);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[])
+
+
+  useEffect(()=>{
+    BaseUrl.get(`/i/commo?commodity=${category}`,config)
+    .then((res)=>
+    {
+      console.log(res);
+      setcommodities(res.data.commodities);
+    //   setreload(true);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[category])  
 const Navhandler = useNavigate();
 
-function handleName(e){
-    setName(e.target.value);
+function handlecategory(e){
+    setcategory(e.target.value);
 }
+
+function handlecommodity(e){
+    setcommodity(e.target.value);
+}
+
+
 
 function handleVolm(e){
     setVolm(e.target.value);
@@ -30,16 +73,12 @@ function handlePrice(e){
 function handleQuantity(e){
     setQuantity(e.target.value);
 }
-var accesstoken = localStorage.getItem("accesstoken");
-const config ={
-headers:{
-Authorization:`Bearer ${accesstoken}`,
-}
-}
+
 var id =localStorage.getItem("ItemId");
 function handleApi(){
     BaseUrl.put("/i/?warehouseId=" +id , {
-    name:name , 
+    commodity:commodity ,
+    category:category, 
     price:price,
     quantity:quantity ,
     volume:volm
@@ -60,10 +99,32 @@ return(<>
 <h1 id='Itemhead'>Add Items</h1>
 <div id='createinps'>
     <div id='padder'>
-<Input inp="inputArr" err_id="log" 
-value={name}
+{/* <Input inp="inputArr" err_id="log" 
+value={categories}
 onchange={handleName}
-type="text" lable='Item Name' placeholder='Enter Item Name' />
+type="text" lable='Item Name' placeholder='Enter Item Name' /> */}
+<select onChange={handlecategory}  name="month" id="month" >
+            
+          {
+          categories.map((associ,index) => {
+            return <option key={index} value={associ}>{associ}</option>
+          })
+         }
+        </select>
+</div>
+<div id='padder'>
+{/* <Input inp="inputArr" err_id="log" 
+value={categories}
+onchange={handleName}
+type="text" lable='Item Name' placeholder='Enter Item Name' /> */}
+<select onChange={handlecommodity}  name="month" id="month" >
+            
+          {
+          commodities.map((associ,index) => {
+            return <option key={index} value={associ}>{associ}</option>
+          })
+         }
+        </select>
 </div>
 <div id='padder'>
 <Input inp="inputArr" err_id="log" 

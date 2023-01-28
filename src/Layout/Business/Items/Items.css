@@ -8,3 +8,12 @@ top:4vh;
     left:270px;
     top:120px;
   }
+  #groupsdiv{
+    /* background-color: #512da8; */
+    width:54.8vw;
+    position:absolute;
+    top:180px;
+    left:250px;
+    padding:20px;
+    z-index:2;
+  }

@@ -35,8 +35,7 @@ const config ={
 let [experience,setexp] = useState([]);
 var [reload,setreload] = useState(false);
 
-function handlexp (){
-  // console.log(accesstoken);
+useEffect(()=>{
   BaseUrl.get('/w/warehouse',config)
   .then((res)=>
   {
@@ -46,12 +45,9 @@ function handlexp (){
   })
   .catch((err)=>{
     console.log(err);
-    toast.error(err.response.data.msg);
   })
-}
-useEffect(()=>handlexp(),[reload])
-
-
+},)
+// useEffect(()=>handlexp(),[])
 // console.log(countries.ABW);
 // if(username!=viewusername)
 //     {
@@ -61,6 +57,9 @@ useEffect(()=>handlexp(),[reload])
 //         }
 //     }
 
+// },[])
+  
+// console.log(countries.ABW);
   return (
 
     
@@ -68,7 +67,7 @@ useEffect(()=>handlexp(),[reload])
       <Nav />
       <div id="viewskill">
         {/* <img src={left} alt='back' onClick={() => Navhandler("/account")}/>  */}
-        <span>Warehouses</span> <img className="action" onClick={()=>{Navhandler("/createwarehouse") }} id="add" src={add} alt='add' ></img>
+        <span>Warehouses</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/createwarehouse/")}></img>
         <div>
             {
                   ((reload && experience.length!==0) ?  experience.map((box)=>{
@@ -79,7 +78,7 @@ useEffect(()=>handlexp(),[reload])
             }
         </div>
       </div>
-        <ToastContainer limit={1} position="top-center" theme="dark" />
+        <ToastContainer position="top-center" theme="dark" />
     </div>
   );
 };

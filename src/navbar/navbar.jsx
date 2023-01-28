@@ -32,7 +32,7 @@ const Nav = () => {
         <div id="navlogo" className="navitem"><img id="navlogoimg" className="navimg" src={logo} alt="logo" />व्यापार-E</div>
         <div onClick={()=>{ Navhandler("/warehouse")}} className="navitem"><img className="navimg" src={home} alt="home" />Warehouse</div>
         {/* <div onClick={()=>{ Navhandler("/network/recieved")}} className="navitem"><img className="navimg" src={network} alt="network" />Networks</div> */}
-        <div className="navitem"><img className="navimg" src={work} alt="job" onClick={()=>Navhandler("/shipment")}/>Shipment</div>
+        <div className="navitem" onClick={()=>{Navhandler("/shipment")}}><img className="navimg" src={work} alt="job" />Shipment</div>
         <div className="navitem"><img className="navimg" src={msg} alt="msg" />Orders</div>
         {/* <div className="navitem"onClick={()=>{;Navhandler("/search")}}><img className="navimg" src={search} alt="search" />Search</div> */}
         {/* <div className="navitem"><img className="navimg" src={noti} alt="noti" />Notification</div> */}
