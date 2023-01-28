@@ -63,6 +63,12 @@ top:5vh;
   /* left:270px;
   top:22vh; */
 }
+.skillbar-title span{
+  font-size: 0.7vw !important;
+}
+.skillbar{
+  width: 40% !important;
+}
 #inputArr2{
   font-size: 1vw;
   height: 3.33vw;

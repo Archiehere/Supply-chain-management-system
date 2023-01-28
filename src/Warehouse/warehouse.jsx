@@ -45,6 +45,7 @@ function handlexp (){
   })
   .catch((err)=>{
     console.log(err);
+    toast.error(err.response.data.msg);
   })
 }
 useEffect(()=>handlexp(),[reload])
@@ -72,12 +73,12 @@ useEffect(()=>handlexp(),[reload])
                   (reload?  experience.map((box)=>{
                     const cont=box.location; const loc=countries[cont]; console.log(loc); 
                     
-                    return <WarehouseBox key={box._id} id={box._id} name={box.name} code={cont} location={ loc} max_volume={box.max_volume} />
+                    return <WarehouseBox key={box._id} id={box._id} name={box.name} code={cont} location={ loc} filled_volume={box.filled_volume} max_volume={box.max_volume} />
                     }) : null)
             }
         </div>
       </div>
-        <ToastContainer position="top-center" theme="dark" />
+        <ToastContainer limit={1} position="top-center" theme="dark" />
     </div>
   );
 };

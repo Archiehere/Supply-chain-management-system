@@ -3,6 +3,7 @@ import Input from "../Authentication/components/authinput";
 import { useEffect, useState } from "react";
 import BaseUrl from "../util/BaseUrl";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
 
 function EditWarehouse(){
 
@@ -28,6 +29,7 @@ BaseUrl.get(`/w/onewarehouse?warehouseId=${item}` , config)
 })
 .catch((err)=>{
     console.log(err);
+    toast.error(err.response.data.msg);
 })
 } ,[])
 
@@ -67,6 +69,7 @@ function handleApi(){
 			.catch((err) => {
 			  console.log(err);
 			  setLoading(false);
+              toast.error(err.response.data.msg);
 			}
 			);
 
@@ -87,6 +90,7 @@ return(
 </div>
 <button id='SubmitBtn' onClick={handleApi}>Save Changes</button>
 </div>
+<ToastContainer limit={1} position="top-center" theme="dark" />
     </>
 )
 }
