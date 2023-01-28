@@ -7,10 +7,13 @@ import ItemsComp from "../Items/ItemsComp";
 import WarehouseBox from "../../../Warehouse/components/WarehouseBox";
 import countries from '../../../countries.js'
 import { useNavigate } from "react-router";
+import FormData from 'form-data';
+import axios from "axios";
 
 function SourceDest(){
 
   const Navhandler = useNavigate(); 
+  const fd = new FormData();
   const[source , setSource]= useState();
 
 function handleapi(){
@@ -19,6 +22,24 @@ var destid = localStorage.getItem("destid");
 BaseUrl.get("/w/locations?from=" +sourceid +"&to=" +destid , config)
 .then((res)=>{
     console.log(res);
+    console.log(res.data.distance);
+    localStorage.setItem("distance" , res.data.distance)
+    var distance = localStorage.getItem("distance");
+var quantity = localStorage.getItem("quantity");
+var volume = localStorage.getItem("volume");
+
+fd.append("quantity" , quantity);
+fd.append("dist" , distance);
+fd.append("volumn" , volume);
+
+axios.post("https://ml-z5p7.onrender.com/ml/" , fd)
+.then((res)=>{
+    console.log(res);
+})
+.catch((err)=>{
+    console.log(err);
+})
+
 })
 .catch((err)=>{
     console.log(err);
