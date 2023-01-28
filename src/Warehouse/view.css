@@ -67,7 +67,16 @@ top:5vh;
   font-size: 0.7vw !important;
 }
 .skillbar{
-  width: 40% !important;
+  width: 90% !important;
+}
+.voidimage{
+  position: relative;
+  /* align-items: center; */
+  /* justify-content: center; */
+  left: 29%;
+  top: 50%;
+  width: 25vw !important;
+  height: auto !important;
 }
 #inputArr2{
   font-size: 1vw;

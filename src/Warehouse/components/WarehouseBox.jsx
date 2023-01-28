@@ -49,8 +49,8 @@ navigate("/editwarehouse")
 }
 
 const Skills = [
-  { type: 'Volume Left', level: parseFloat(100-(props.filled_volume/props.max_volume)*100).toFixed(2)  },
-  
+  { type: 'Volume Left', level: 80 },
+  //parseFloat(100-(props.filled_volume/props.max_volume)*100).toFixed(2)
 ];
 
 const colors = {
@@ -64,14 +64,14 @@ const colors = {
         
         
 
-        <p style={{ fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
+        <p style={{ display:"inline-block", marginRight:"47.5vw",fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{props.name}</p>
         
         <p style={{display:"inline",fontWeight: '500',fontSize: '1.2vw',color:"#E6E6EB"}}>{ props.location }  </p>
-        <img crossorigin="anonymous" style={{width:"2vw",height:"auto"}} src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
+        <img crossorigin="anonymous" style={{ width:"2vw",height:"auto"}} src={`https://countryflagsapi.com/png/${props.code}`} alt="flag"></img>
         
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Max Volume-{props.max_volume} </p>
         <br/>
-        <SkillBar skills={Skills}  colors={colors} height="2vh" width="2vw" fontSize="10px" />
+        <SkillBar skills={Skills}   colors={colors} height="2vh" width="7vw" fontSize="10px" />
         <img src={deleteimg} className='deleteimg' id={props.id} onClick={deletefunc}></img>
         <img src={editimg} className='deleteimg2' id={props.id} onClick={editfunc}></img>
         
