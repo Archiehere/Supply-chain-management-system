@@ -45,13 +45,21 @@ useEffect(()=>{
   .catch((err)=>{
     console.log(err);
   })
-
 },[])
+// useEffect(()=>handlexp(),[])
+// console.log(countries.ABW);
+// if(username!=viewusername)
+//     {
+//         var cols=document.getElementsByClassName('action')
+//         for(var i = 0; i < cols.length; i++) {
+//             cols[i].style.visibility = 'hidden';
+//         }
+//     }
+
+// },[])
   
 // console.log(countries.ABW);
   return (
-
-    
     <div>
       <Nav />
       <div id="viewskill">

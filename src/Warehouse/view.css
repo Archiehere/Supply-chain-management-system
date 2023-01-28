@@ -29,6 +29,17 @@
     width: 1.2vw;
     float: right;
 }
+
+.expbox{
+  margin-top: 2vw;
+  padding-left: 2vh;
+  border-bottom: solid 6px #512da8;
+}
+.expbox:hover{
+  background-color: #13131A;
+  cursor: pointer;
+}
+
 .endorse{
     color: #A950FB;
     font-size: 1.2vw !important;

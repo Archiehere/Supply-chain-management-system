@@ -40,21 +40,15 @@ function handleLocation(e){
 
 function handleapi(){
 	setLoading(true);
-	
-	
 		BaseUrl.post("/w/warehouse",{
-			
 				"name":name,
 				"location":location,
 				"max_volume":volm
-			
 		},config).then((res) => {
 			console.log(res);
 			if (res.data.success === true) {
 				// localStorage.clear();
-				
 				Navhandler("/warehouse");
-				
 			  } else {
 				console.log("f");
 			  }
@@ -65,8 +59,6 @@ function handleapi(){
 			  setLoading(false);
 			}
 			);
-		
-	
 }
 
 return <div>
